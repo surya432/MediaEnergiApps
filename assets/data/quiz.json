@@ -1,0 +1,53 @@
+{
+    "status":true,
+    "data":[
+        {
+        "pertanyaan":
+            "Ketahanan pangan adalah kondisi terpenuhinya pangan bagi negara sampai perseorangan, dengan tersedianya pangan yang cukup, baik jumlah maupun mutunya, aman, bergam, bergizi, merata dan terjangkau serta tidak bertentangan dengan SARA untuk dapat hidup sehat, aktif dan produktif. Pernyataan tersebut merupakan konsep ketahanan pangan menurut ?",
+        "jawabanbenar":
+            "c. Undang-Undang Republik Indonesia Nomor 18 Tahun 2012",
+        "jawaban": [
+          "a. Undang-Undang Republik Indonesia Nomor 18 Tahun 2012",
+          "b. FAO",
+          "c. Undang-Undang Republik Indonesia Nomor 3 Tahun 2014",
+          "d. WHO",
+          "e. UNICEF"
+        ]
+      }, {
+        "pertanyaan":
+            "Ciri-ciri industri bahan baku langsung dari alam, terbagi menjadi dua jenis industri,disebut industri tersier,layanan di bidang jasa, dan menghasilkan produk baru. Ciri-ciri industri ekstraktif ditunjukan nomer ?",
+        "jawabanbenar": " e.1 2 dan 5",
+        "jawaban": [
+          "a.1, 2, dan 3",
+          "b.2, 3, dan 4",
+          "c.3, 4 dan 5",
+          "d.1, 2 dan 4",
+          "e.1, 2 dan 5"
+        ]
+      },
+      {
+        "pertanyaan":
+            "3. Daerah penghasil bunga mawar terbesar di Indonesia adalah?",
+        "jawabanbenar": "e. Jawa Timur",
+        "jawaban": [
+          "a. Jawa Barat",
+          "b. Sulawesi Utara",
+          "c. Jawa Tengah",
+          "d. Bali",
+          "e. Jawa Timur"
+        ]
+      },
+       {
+        "pertanyaan":
+            "4. Sumber energi:Biomassa,Minyak bumi,Matahari,Panas bumi,dan Gambut.Sumber energi terbarukan ditunjukan nomor?",
+        "jawabanbenar": "e.Jawa Timur",
+        "jawaban": [
+          "a.1, 2 dan 3",
+          "b.3, 4 dan 5",
+          "c.1, 2 dan 4",
+          "d.1, 2 dan 5",
+          "e.2, 3 dan 4"
+        ]
+      }
+    ]
+}
