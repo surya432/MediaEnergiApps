@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mediainteaktifpangan/app/ui/splashscreen/splashScreen2.dart';
+import 'package:mediainteaktifpangan/app/ui/home/homeScreen.dart';
 
-class SplashScreen extends StatefulWidget {
-  SplashScreen({Key key}) : super(key: key);
+class Splash2Screen extends StatefulWidget {
+  Splash2Screen({Key key}) : super(key: key);
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _Splash2ScreenState createState() => _Splash2ScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
+class _Splash2ScreenState extends State<Splash2Screen>
     with TickerProviderStateMixin {
   AnimationController controller;
   Animation<double> animation;
@@ -21,13 +21,13 @@ class _SplashScreenState extends State<SplashScreen>
     animation = CurvedAnimation(parent: controller, curve: Curves.easeInCubic);
     animation.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        //   controller.reverse();
-        // } else if (status == AnimationStatus.dismissed) {
+        controller.reverse();
+      } else if (status == AnimationStatus.dismissed) {
         // controller.forward();
         Get.off(
-          Splash2Screen(),
-          // transition: Transition.zoom,
-          // duration: new Duration(milliseconds: 200),
+          Home(),
+          transition: Transition.zoom,
+          duration: new Duration(milliseconds: 200),
         );
       }
     });
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/Unesa.png',
+                'assets/tp.png',
                 height: height,
                 width: width,
               ),

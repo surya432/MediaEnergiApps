@@ -1,47 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:mediainteaktifpangan/app/ui/settings/menus/Pengembang/PengembangScreen.dart';
-import 'package:mediainteaktifpangan/app/ui/settings/menus/kopetensiDasar/KopetensiDasarScreen.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/Energi%20copy/Materi_Energi.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/Energi/Materi_Energi.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/industri/Materi_Industri.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/pangan/Materi_Pangan.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
 
-import 'menus/PetunjukPenggunaan/PetunjukPenggunaanScreen.dart';
-import 'menus/tujuan/TujuanScreen.dart';
-
-class SettingScreen extends StatefulWidget {
-  SettingScreen({Key key}) : super(key: key);
+class MateriScreen extends StatefulWidget {
+  MateriScreen({Key key}) : super(key: key);
 
   @override
-  _SettingScreenState createState() => _SettingScreenState();
+  _MateriScreenState createState() => _MateriScreenState();
 }
 
 var menuList = [
   {
-    "images": "assets/Icon/button-14.png",
-    "route": KopetensiDasarScreen(),
+    "images": "assets/Icon/button-pangan-01.png",
+    "route": MateriPanganScreen(),
     "name": "Kopetensi Dasar"
   },
   {
-    "images": "assets/Icon/button-15.png",
-    "route": TujuanScreen(),
+    "images": "assets/Icon/button-industri-01.png",
+    "route": MateriIndustriScreen(),
     "name": "Tujuan"
   },
   {
-    "images": "assets/Icon/button-16.png",
-    "route": PetunjukPenggunaanScreen(),
+    "images": "assets/Icon/button-terbaru-01.png",
+    "route": MateriEnergiScreen(),
     "name": "Petunjuk Pengunaan"
   },
   {
-    "images": "assets/Icon/button-17.png",
-    "route": PengembangScreen(),
+    "images": "assets/Icon/button-pengelolahan-01.png",
+    "route": MateriPengolahanScreen(),
     "name": "Profil Pengembang"
   },
 ];
 
-class _SettingScreenState extends State<SettingScreen> {
+class _MateriScreenState extends State<MateriScreen> {
   @override
   void initState() {
-    precacheImage(new AssetImage("assets/Icon/board-01-min.png"), Get.context);
+    precacheImage(
+        new AssetImage("assets/Icon/button-materi-01.png"), Get.context);
     precacheImage(new AssetImage("assets/bg_01.jpg"), Get.context);
 
     super.initState();
@@ -53,6 +53,7 @@ class _SettingScreenState extends State<SettingScreen> {
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
         content: BoardTitleWidget(
+          widgetTitle: "assets/Icon/button-materi-01.png",
           widgetContent: Center(
             child: Column(
               children: [
@@ -113,7 +114,6 @@ class _SettingScreenState extends State<SettingScreen> {
               ],
             ),
           ),
-          widgetTitle:  "assets/Icon/button-pengaturan-01.png",
         ),
         custombar: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

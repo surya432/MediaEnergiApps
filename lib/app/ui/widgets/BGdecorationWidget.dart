@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BGContainerWidget extends StatelessWidget {
   const BGContainerWidget({
@@ -12,40 +13,58 @@ class BGContainerWidget extends StatelessWidget {
   final double kPaddingTop;
   @override
   Widget build(BuildContext context) {
+    print(kPaddingTop);
     var boxDecoration = BoxDecoration(
       image: DecorationImage(
         image: new AssetImage("assets/bg_01.jpg"),
         fit: BoxFit.fill,
       ),
     );
+    var paddintop = context.isTablet ? kPaddingTop + 20 : kPaddingTop + 10;
     return Container(
       decoration: boxDecoration,
-      child: Column(
+      height: Get.height,
+      width: Get.width,
+      padding: EdgeInsets.only(top: paddintop, left: 24, right: 24, bottom: 16),
+      child: Stack(
         children: [
-          Expanded(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: kPaddingTop,
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 24),
-                  child: Stack(
-                    children: [
-                      custombar,
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Center(child: content),
-                          ]),
-                    ],
-                  ),
-                ),
-              ],
+          custombar,
+          Center(
+            child: Container(
+              // color: Colors.red,
+              child: Center(
+                child: content,
+              ),
             ),
-          )
+          ),
         ],
       ),
+      // child: Column(
+      //   children: [
+      //     Expanded(
+      //       child: Column(
+      //         children: [
+      //           SizedBox(
+      //             height: kPaddingTop,
+      //           ),
+      //           Container(
+      //             padding: EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+      //             child: Stack(
+      //               children: [
+      //                 custombar,
+      //                 Column(
+      //                     crossAxisAlignment: CrossAxisAlignment.center,
+      //                     children: [
+      //                       Center(child: content),
+      //                     ]),
+      //               ],
+      //             ),
+      //           ),
+      //         ],
+      //       ),
+      //     )
+      //   ],
+      // ),
     );
   }
 }

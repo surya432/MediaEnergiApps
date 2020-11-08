@@ -2,7 +2,9 @@ import 'package:asset_cache/asset_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:mediainteaktifpangan/app/binding/PertanianBinding.dart';
 import 'package:mediainteaktifpangan/app/binding/QuizBinding.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/pangan/Pertanian.dart';
 import 'package:mediainteaktifpangan/app/ui/quiz/QuizScreen.dart';
 
 import 'app/ui/splashscreen/splashScreen.dart';
@@ -43,6 +45,13 @@ class MyApp extends StatelessWidget {
           name: '/QuizScreen',
           page: () => QuizScreen(),
           binding: QuizBinding(),
+          transition: Transition.zoom,
+        ),
+        GetPage(
+          name: '/Pertanian',
+          page: () => MateriPertanian(),
+          binding: PertanianBinding(),
+          transition: Transition.zoom,
         ),
       ],
     );

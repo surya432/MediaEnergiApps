@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/Materi_Screen.dart';
 import 'package:mediainteaktifpangan/app/ui/settings/SettingScreen.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 
@@ -73,7 +74,9 @@ class _HomeState extends State<Home> {
                       GestureDetector(
                         child: Image.asset('assets/Icon/button-01.png',
                             height: 80, width: 80),
-                        onTap: () {},
+                        onTap: () => Get.to(MateriScreen(),
+                            transition: Transition.zoom,
+                            duration: Duration(milliseconds: 500)),
                       ),
                       SizedBox(
                         width: Get.width * 0.03,

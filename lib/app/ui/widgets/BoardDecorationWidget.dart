@@ -14,12 +14,14 @@ class BoardBackground extends StatelessWidget {
         fit: BoxFit.fill,
       ),
     );
-    return Container(
-      decoration: boxDecoration,
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-      height: Get.height - context.mediaQueryPadding.top - 20,
-      width: Get.width * 0.8,
-      child: dataContent,
+    return Center(
+      child: Container(
+        decoration: boxDecoration,
+        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        height: Get.height - context.mediaQueryPadding.top - 20,
+        width: Get.width * 0.8,
+        child: Center(child: dataContent),
+      ),
     );
   }
 }
