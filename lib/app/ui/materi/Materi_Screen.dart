@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mediainteaktifpangan/app/ui/materi/Energi%20copy/Materi_Energi.dart';
-import 'package:mediainteaktifpangan/app/ui/materi/Energi/Materi_Energi.dart';
-import 'package:mediainteaktifpangan/app/ui/materi/industri/Materi_Industri.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pangan/Materi_Pangan.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
@@ -16,23 +13,23 @@ class MateriScreen extends StatefulWidget {
 
 var menuList = [
   {
-    "images": "assets/Icon/button-pangan-01.png",
+    "images": "assets/Icon/menu-button-pangan.png",
     "route": MateriPanganScreen(),
     "name": "Kopetensi Dasar"
   },
   {
-    "images": "assets/Icon/button-industri-01.png",
-    "route": MateriIndustriScreen(),
-    "name": "Tujuan"
+    "images": "assets/Icon/menu-button-industri.png",
+    "route": "/Industri",
+    "name": "Industri"
   },
   {
-    "images": "assets/Icon/button-terbaru-01.png",
-    "route": MateriEnergiScreen(),
+    "images": "assets/Icon/menu-button-energi-terbaru.png",
+    "route": "/Energi",
     "name": "Petunjuk Pengunaan"
   },
   {
-    "images": "assets/Icon/button-pengelolahan-01.png",
-    "route": MateriPengolahanScreen(),
+    "images": "assets/Icon/menu-button-pengelohan.png",
+    "route": "/Pengelolahan",
     "name": "Profil Pengembang"
   },
 ];
@@ -75,9 +72,9 @@ class _MateriScreenState extends State<MateriScreen> {
                     Expanded(
                       flex: 1,
                       child: GestureDetector(
-                        onTap: () => Get.to(menuList[1]['route'],
-                            transition: Transition.zoom,
-                            duration: Duration(milliseconds: 700)),
+                        onTap: () => Get.toNamed(
+                          menuList[1]['route'].toString(),
+                        ),
                         child: Image.asset(menuList[1]['images'],
                             height: 60, width: 60),
                       ),
@@ -92,18 +89,18 @@ class _MateriScreenState extends State<MateriScreen> {
                   children: [
                     Expanded(
                       child: GestureDetector(
-                        onTap: () => Get.to(menuList[2]['route'],
-                            transition: Transition.cupertinoDialog,
-                            duration: Duration(milliseconds: 700)),
+                        onTap: () => Get.toNamed(
+                          menuList[2]['route'],
+                        ),
                         child: Image.asset(menuList[2]['images'],
                             height: 60, width: 60),
                       ),
                     ),
                     Expanded(
                       child: GestureDetector(
-                        onTap: () => Get.to(menuList[3]['route'],
-                            transition: Transition.cupertinoDialog,
-                            duration: Duration(milliseconds: 700)),
+                        onTap: () => Get.toNamed(
+                          menuList[3]['route'],
+                        ),
                         child: Image.asset(menuList[3]['images'],
                             height: 60, width: 60),
                       ),

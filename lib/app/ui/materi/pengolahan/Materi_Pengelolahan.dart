@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mediainteaktifpangan/app/controller/EnergiController.dart';
+import 'package:mediainteaktifpangan/app/controller/PengelolahanController.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
 
-class EnergiScreen extends StatefulWidget {
+class PengelolahanScreen extends StatefulWidget {
   @override
-  _EnergiScreenState createState() => _EnergiScreenState();
+  _PengelolahanScreenState createState() => _PengelolahanScreenState();
 }
 
-class _EnergiScreenState extends State<EnergiScreen>
+class _PengelolahanScreenState extends State<PengelolahanScreen>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
@@ -31,25 +31,25 @@ class _EnergiScreenState extends State<EnergiScreen>
 
   @override
   Widget build(BuildContext context) {
-    print(Get.find<EnergiController>()
-        .menuList[Get.find<EnergiController>().pageIndex.value]['images']
+    print(Get.find<PengelolahanController>()
+        .menuList[Get.find<PengelolahanController>().pageIndex.value]['images']
         .toString());
     return Scaffold(
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
-        content: GetX<EnergiController>(
+        content: GetX<PengelolahanController>(
           builder: (controller) {
             return BoardTitleWidget(
-              widgetTitle: Get.find<EnergiController>()
-                  .menuList[Get.find<EnergiController>().pageIndex.value]
+              widgetTitle: Get.find<PengelolahanController>()
+                  .menuList[Get.find<PengelolahanController>().pageIndex.value]
                       ['images']
                   .toString(),
               widgetContent: Center(
-                child: GetX<EnergiController>(
+                child: GetX<PengelolahanController>(
                   initState: (state) =>
-                      Get.find<EnergiController>().initparameter(),
+                      Get.find<PengelolahanController>().initparameter(),
                   builder: (controller) {
-                    print(Get.find<EnergiController>()
+                    print(Get.find<PengelolahanController>()
                         .pageIndex
                         .value
                         .toString());
@@ -77,10 +77,11 @@ class _EnergiScreenState extends State<EnergiScreen>
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Align(
                               alignment: Alignment.topLeft,
-                              child: Get.find<EnergiController>().menuList[
-                                  Get.find<EnergiController>()
-                                      .pageIndex
-                                      .value]['route'],
+                              child:
+                                  Get.find<PengelolahanController>().menuList[
+                                      Get.find<PengelolahanController>()
+                                          .pageIndex
+                                          .value]['route'],
                             ),
                           ),
                         ),
@@ -91,27 +92,29 @@ class _EnergiScreenState extends State<EnergiScreen>
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Obx(() => Get.find<EnergiController>()
+                              Obx(() => Get.find<PengelolahanController>()
                                           .pageIndex
                                           .value >
                                       0
                                   ? GestureDetector(
-                                      onTap: () => Get.find<EnergiController>()
-                                          .decrement(),
+                                      onTap: () =>
+                                          Get.find<PengelolahanController>()
+                                              .decrement(),
                                       child: Image.asset("assets/Icon/prev.png",
                                           height: 40, width: 40),
                                     )
                                   : Container(height: 40, width: 40)),
-                              Obx(() => Get.find<EnergiController>()
+                              Obx(() => Get.find<PengelolahanController>()
                                           .pageIndex
                                           .value <
-                                      Get.find<EnergiController>()
+                                      Get.find<PengelolahanController>()
                                               .menuList
                                               .length -
                                           1
                                   ? GestureDetector(
-                                      onTap: () => Get.find<EnergiController>()
-                                          .increment(),
+                                      onTap: () =>
+                                          Get.find<PengelolahanController>()
+                                              .increment(),
                                       child: Image.asset("assets/Icon/next.png",
                                           height: context.isTablet ? 60 : 40,
                                           width: context.isTablet ? 60 : 40),
@@ -150,8 +153,8 @@ class _EnergiScreenState extends State<EnergiScreen>
   }
 }
 
-class WidgetEnergi1 extends StatelessWidget {
-  const WidgetEnergi1({
+class WidgetPengelolahan1 extends StatelessWidget {
+  const WidgetPengelolahan1({
     Key key,
   }) : super(key: key);
 
@@ -161,7 +164,7 @@ class WidgetEnergi1 extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "Potensi dan Persebaran Sumber Daya untuk Penyedia Energi Baru dan Terbarukan (EBT)\n",
+            "Pengelolaan Sumber Daya Penyediaan Bahan Pangan, Industri dan Energi Baru dam Terbarukan di Indonesia\n",
             style: TextStyle(
               fontSize: 16,
               // fontWeight: FontWeight.bold,
@@ -171,8 +174,8 @@ class WidgetEnergi1 extends StatelessWidget {
             ),
           ),
           Text(
-            "Indonesia merupakan negara dengan potensi energi terbarukan yang cukup besar, hal ini dapat dilihat berdasarkan letak geografis, astronomis dan geologis Indonesia. Menurut UU RI Nomor 30 Tahun 2007, sumber daya energi adalah sumber daya alam yang dapat dimanfaatkan, baik sebagai sumber energi maupun sebagai energi.\n" +
-                "Sumber energi adalah sesuatu yang dapat menghasilkan energi baik secara langsung maupun melalui proses konversi atau transformasi",
+            "1. Pengelolaan Bahan Pangan\n" +
+                "Pertanian merupakan komponen utama dalam penyediaan bahan pangan. Pelestarian pertanian adalah tindakan pengelolaan dan penggunaan lahan pertanian untuk usaha perbaikan dan pengingkatan mutunya serta pemeliharaan keseimbangan ekologis untuk memperoleh sistem produksi berkelanjutan.",
             textAlign: TextAlign.justify,
             style: TextStyle(
               // fontSize: 13,
@@ -190,8 +193,8 @@ class WidgetEnergi1 extends StatelessWidget {
   }
 }
 
-class WidgetEnergi2 extends StatelessWidget {
-  const WidgetEnergi2({
+class WidgetPengelolahan2 extends StatelessWidget {
+  const WidgetPengelolahan2({
     Key key,
   }) : super(key: key);
 
@@ -201,7 +204,12 @@ class WidgetEnergi2 extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "Energi terbarukan adalah sumber energi yang dihasilkan dari sumber daya energi yang berkelanjutan jika dikelolah dengan baik tidak ada habisnya, dan dapat dicukupi kembali pada tingkat yang sama namun terbatas dalam jumlah energi persatuan. Contohnya : panas bumi, energi air, bioenergi, energi surya, energi angin, energi laut.\n",
+            "Tindakan pelestarian harus memperhatikan :\n" +
+                "a. Pencegahan erosi permukaan tanah (kulturteknis, biologis, teknis mekanis)\n" +
+                "b. Pencegahan teknik budi daya tanaman yang bersifat penambangan hara tanah secara esploitatif\n" +
+                "c. Pergiliran varietas dan penanaman multivarietas pada satu hamparan\n" +
+                "d. Pemeliharaan prasarana irigrasi, tata guna air, waduk, sumber air dan wilayah resapan air\n" +
+                "e. Pendidikan, pelatihan dan penyadaran petani akan pentingnya pemeliharaan kelestarian lahan pertanian",
             textAlign: TextAlign.justify,
             style: TextStyle(
               // fontSize: 13,
@@ -219,8 +227,8 @@ class WidgetEnergi2 extends StatelessWidget {
   }
 }
 
-class WidgetEnergi3 extends StatelessWidget {
-  const WidgetEnergi3({
+class WidgetPengelolahan3 extends StatelessWidget {
+  const WidgetPengelolahan3({
     Key key,
   }) : super(key: key);
 
@@ -230,9 +238,109 @@ class WidgetEnergi3 extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "Energi tak terbarukan adalah sumber energi yang akan habis jika dieksploitasi secara terus-menerus. Salah satu energi tak terbarukan adalah energi fosil yang disebut juga dengan energi komersial. Contohnya minyak bumi, gas bumi, batu bara, gambut.\n"+
-            "Energi baru adalah sumber energi yang dapat dihasilkan oleh teknologi baru baik yang berasal dari sumber energi terbarukan maupun energi tak terbarukan.\n"+
-            "Contohnya batu bara tercairkan, batu bara tergaskan, gas metana batu bara, hidrogen dan nuklir.\n",
+            "2. Pengelolaan Bahan Industri\n" +
+                "Salah satu tujuan perindustrian adalah mewujudkan industri yang mandiri, berdaya saing, maju serta industri hijau yang mana dalam proses produksinya mengutamakan upaya efisiensi dan efektivitas penggunaan sumber daya secara berkelanjutan sehingga mampu menyelaraskan pembangunan industri dengan kelestarian fungsi lingkungan hidup.",
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              // fontSize: 13,
+              wordSpacing: 2,
+              color: Colors.white,
+              fontFamily: "FredokaOne",
+            ),
+          ),
+        ],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+      ),
+    );
+  }
+}
+
+class WidgetPengelolahan4 extends StatelessWidget {
+  const WidgetPengelolahan4({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Text(
+            "Pemanfaatan SDA secara efisien dilakukan melalui :\n" +
+                "a. Penghematan\n" +
+                "b. Penggunaan teknologi yang ramah lingkungan\n" +
+                "c. Optimalisasi kinerja proses produksi\n" +
+                "Pemanfaatan SDA ramah lingkungan dan berkelanjutan dilakukan melalui:\n" +
+                "a. Pengurangan limbah\n" +
+                "b. Penggunaan kembali\n" +
+                "c. Pengolahan kembali\n" +
+                "d. Pemulihan",
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              // fontSize: 13,
+              wordSpacing: 2,
+              color: Colors.white,
+              fontFamily: "FredokaOne",
+            ),
+          ),
+        ],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+      ),
+    );
+  }
+}
+
+class WidgetPengelolahan5 extends StatelessWidget {
+  const WidgetPengelolahan5({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+
+          Text("3. Pengelolaan Energi Baru dan Terbarukan\n"+
+            "Pengembangan sumber energi yang terbarukan sebagai sumber energi alternatif harus dilakukan karena :\n" +
+                "a. Permintaan energi meningkat dengan pesat karena industrialisasi dan pertumbuhan penduduk yang pesat\n" +
+                "b. Sumber energi fosil tidak terbarukan\n" +
+                "c. Sumber konvensional  (bahan bakar fosil) juga menyebabkan polusi",
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              // fontSize: 13,
+              wordSpacing: 2,
+              color: Colors.white,
+              fontFamily: "FredokaOne",
+            ),
+          ),
+        ],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+      ),
+    );
+  }
+}
+
+class WidgetPengelolahan6 extends StatelessWidget {
+  const WidgetPengelolahan6({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Text(
+            "Pemanfaatan sumber energi terbarukan :\n" +
+                "1. Jenis energi aliran dan air terjun, energi panas bumi, energi gerakan dan perbedaan suhu lapisan laut dan energi angin diarahkan untuk ketenagalistrikan\n" +
+                "2. Pemanfaatan sumber energi terbarukan dari jenis energi sinar matahari diarahkan untuk ketenagalistrikan dan energi nonlistrik untuk industri, rumah tangga, dan transportasi",
             textAlign: TextAlign.justify,
             style: TextStyle(
               // fontSize: 13,

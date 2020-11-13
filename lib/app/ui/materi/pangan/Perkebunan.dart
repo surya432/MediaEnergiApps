@@ -1,24 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:mediainteaktifpangan/app/controller/PertanianController.dart';
-import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
+import 'package:mediainteaktifpangan/app/controller/PerkebunanController.dart';
+import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
 
-class MateriPertanian extends StatefulWidget {
-  MateriPertanian({Key key}) : super(key: key);
-
+class PerkebunanScreen extends StatefulWidget {
   @override
-  _MateriPertanianState createState() => _MateriPertanianState();
+  _PerkebunanScreenState createState() => _PerkebunanScreenState();
 }
 
-class _MateriPertanianState extends State<MateriPertanian> {
+class _PerkebunanScreenState extends State<PerkebunanScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
   @override
   void initState() {
+    _controller = AnimationController(vsync: this);
     precacheImage(
-        new AssetImage("assets/Icon/menu-button-pertanian.png"), Get.context);
+        new AssetImage("assets/Icon/menu-button-perkebunan.png"), Get.context);
     precacheImage(new AssetImage("assets/bg_01.jpg"), Get.context);
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -27,14 +35,16 @@ class _MateriPertanianState extends State<MateriPertanian> {
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
         content: BoardTitleWidget(
-          widgetTitle: "assets/Icon/menu-button-pertanian.png",
+          widgetTitle: "assets/Icon/menu-button-perkebunan.png",
           widgetContent: Center(
-            child: GetX<PertanianController>(
+            child: GetX<PerkebunanController>(
               initState: (state) =>
-                  Get.find<PertanianController>().initparameter(),
+                  Get.find<PerkebunanController>().initparameter(),
               builder: (controller) {
-                print(
-                    Get.find<PertanianController>().pageIndex.value.toString());
+                print(Get.find<PerkebunanController>()
+                    .pageIndex
+                    .value
+                    .toString());
                 return Stack(
                   children: [
                     // Expanded(
@@ -59,8 +69,8 @@ class _MateriPertanianState extends State<MateriPertanian> {
                         padding: const EdgeInsets.only(top: 8.0),
                         child: Align(
                           alignment: Alignment.topLeft,
-                          child: Get.find<PertanianController>().menuList[
-                              Get.find<PertanianController>()
+                          child: Get.find<PerkebunanController>().menuList[
+                              Get.find<PerkebunanController>()
                                   .pageIndex
                                   .value]['route'],
                         ),
@@ -73,26 +83,26 @@ class _MateriPertanianState extends State<MateriPertanian> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Obx(() => Get.find<PertanianController>()
+                          Obx(() => Get.find<PerkebunanController>()
                                       .pageIndex
                                       .value >
                                   0
                               ? GestureDetector(
-                                  onTap: () => Get.find<PertanianController>()
+                                  onTap: () => Get.find<PerkebunanController>()
                                       .decrement(),
                                   child: Image.asset("assets/Icon/prev.png",
                                       height: 40, width: 40),
                                 )
                               : Container(height: 40, width: 40)),
-                          Obx(() => Get.find<PertanianController>()
+                          Obx(() => Get.find<PerkebunanController>()
                                       .pageIndex
                                       .value <
-                                  Get.find<PertanianController>()
+                                  Get.find<PerkebunanController>()
                                           .menuList
                                           .length -
                                       1
                               ? GestureDetector(
-                                  onTap: () => Get.find<PertanianController>()
+                                  onTap: () => Get.find<PerkebunanController>()
                                       .increment(),
                                   child: Image.asset("assets/Icon/next.png",
                                       height: context.isTablet ? 60 : 40,
@@ -130,8 +140,8 @@ class _MateriPertanianState extends State<MateriPertanian> {
   }
 }
 
-class WidgetPangan1 extends StatelessWidget {
-  const WidgetPangan1({
+class WidgetPekebunan1 extends StatelessWidget {
+  const WidgetPekebunan1({
     Key key,
   }) : super(key: key);
 
@@ -141,7 +151,7 @@ class WidgetPangan1 extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "A.\tPotensi dan Persebaran Ketahanan Pangan\n",
+            "Potensi dan Persebaran Sumber Daya Pekebunan\n",
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -150,14 +160,11 @@ class WidgetPangan1 extends StatelessWidget {
             ),
           ),
           Text(
-            "Menurut UU RI Nomor 18 Tahun 2012, Ketahanan pangan adalah kondisi terpenuhinya pangan bagi negara sampai perseorangan, dengan" +
-                "tersedianya pangan yang cukup, baik jumlah maupun mutunya, aman, beragam, bergizi, merata dan terjangkau serta tidak bertentangan" +
-                "dengan SARA untuk dapat hidup sehat, aktif dan produktif." +
-                "Komponen yang harus dipenuhi untuk mencapai kondisi ketahanan pangan :\n\n" +
-                "a.	Kecukupan ketersediaan pangan\n" +
-                "b.	Stabilitas ketersediaan pangan \n" +
-                "c.	Aksesibilitas/ keterjangkauan terhadap pangan\n" +
-                "d.	Kualitas/ keamanan pangan",
+            "Perkebunan adalah segala kegiatan pengelolaan SDA (barang), SDM (jasa), sarana produksi, alat dan mesin, budi daya, panen, pengolahan, dan pemasaran terkait tanaman perkebunan." +
+                "Kriteria khusus perkebunan :\n" +
+                "a. Pengusahaan perkebunan dilakukan dalam bentuk usaha perkebunan rakyat atau perkebunan besar\n" +
+                "b. Pengusahaan perkebunan besar harus melalui kerja sama kemitraan dengan usaha perkebunan rakyat secara berkelanjutan\n" +
+                "c. Arah pengembangan usaha perkebunan dilaksanakan dalam bingkai prinsip pembangunan berkelanjutan",
             textAlign: TextAlign.justify,
             style: TextStyle(
               // fontSize: 13,
@@ -175,32 +182,31 @@ class WidgetPangan1 extends StatelessWidget {
   }
 }
 
-class WidgetPangan2 extends StatelessWidget {
-  const WidgetPangan2({
+class WidgetPekebunan2 extends StatelessWidget {
+  const WidgetPekebunan2({
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    String decs =
-        "Pertanian merupakan sektor utama yang menjadi tumpuan ketahanan pangan."
-        "Lahan pertanian berkelanjutan adalah bidang pertanian yang ditetapkan untuk dilindungi dan dikembangkan secara konsisten guna menghasilkan pangan pokok bagi ketahanan pangan nasional."
-        "Sementara lahan cadangan pertanian pangan berkelanjutan adalah lahan potensial yang dilindungi pemanfaatannya agar kesesuaian dan ketersediaannya tetap terkendali untuk dimanfaatkan pada masa yang akan datang";
     return SingleChildScrollView(
       child: Column(
         children: [
           Text(
-            "1.	Potensi dan Persebaran Sumber Daya Pertanian\n",
+            "Perkebunan menurut jenis usaha perkebunannya :\n",
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
               wordSpacing: 4,
               color: Colors.white,
-              fontFamily: "FredokaOne",
             ),
           ),
           Text(
-            decs,
+            "a. Usaha Budi Daya Tanaman Perkebunan adalah pengusaha tanaman perkebunan yang meliputi kegiatan pratanam, penanaman, pemelihaaan tanaman, pemanen dan sortasi\n" +
+                "b. Usaha Industri Pengolahan Hasil Perkebunan adalah kegiatan penanganan dan pemrosesan yang dilakukan terhadap hasil tanaman perkebunan" +
+                "Perkebunan menurut pengelolaannya :\n" +
+                "a. Perkebunan besar, dikelola perusahaan berbadan hukum secara komersial dengan lahan yang luas, modal besar dan teknologi yang maju. Biasanya mengelola kelapa sawit, teh, tebu, cokelat\n"
+                    "b. Perkebunan kecil, dikelola rakyat dengan luas lahan dan modal yang terbatas serta teknologi yang sederhana. Contohnya kopi, cengkeh, karet.",
             textAlign: TextAlign.justify,
             style: TextStyle(
               // fontSize: 13,
@@ -218,38 +224,47 @@ class WidgetPangan2 extends StatelessWidget {
   }
 }
 
-class WidgetPangan3 extends StatelessWidget {
-  const WidgetPangan3({
+class WidgetPekebunan3 extends StatelessWidget {
+  const WidgetPekebunan3({
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    String decs = "Adalah lahan pertanian yang berpetak-petak dan dibatasi oleh pematang, saluran untuk air, yang biasanya ditanami padi sawah tanpa memandang dimana diperoleh lahan tersebut." +
-        "Lahan sawah terdiri dari :\n\n" +
-        "a.	Lahan sawah irigasi, yang keperluan airnya di suplai oleh irigasi\n" +
-        "b.	Lahan sawah tadah hujan, yang bergantuk pada air hujan\n" +
-        "c.	Lahan sawah pasang surut, pengairannya bergantung pada air sungai yang dipengaruhi pasang surutnya air laut\n" +
-        "d.	Lahan sawah lebak, pengairannya dari reklamasi rawa lebak\n" +
-        "e.	Polder dan sawah lainnya, lahan sawah yang terdapat di delta sungai yang pengairannya dipengaruhi oleh air sungai tersebut";
     return SingleChildScrollView(
       child: Column(
         children: [
           Text(
-            "Lahan Sawah\n",
+            "Perkebunan menurut jenis tanamannya :\n",
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
               wordSpacing: 4,
               color: Colors.white,
-              fontFamily: "FredokaOne",
             ),
           ),
           Text(
-            decs,
+            "a. Perkebunan tanaman musim (tanaman umur pendek). Contohnya tembakau, tebu, sereh wangi, jarak kepyer, nilam",
             textAlign: TextAlign.justify,
             style: TextStyle(
-              // fontSize: 12,
+              // fontSize: 13,
+              wordSpacing: 2,
+              color: Colors.white,
+              fontFamily: "FredokaOne",
+            ),
+          ),
+          Center(
+              child: Container(
+                  child: Image.asset(
+            'assets/perkebunan-img1.jpg',
+            height: Get.height * .6,
+            width: Get.width * .6,
+          ))),
+          Text(
+            "b. Perkebunan tanaman musim (tanaman umur pendek). Contohnya tembakau, tebu, sereh wangi, jarak kepyer, nilam",
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              // fontSize: 13,
               wordSpacing: 2,
               color: Colors.white,
               fontFamily: "FredokaOne",
@@ -264,8 +279,8 @@ class WidgetPangan3 extends StatelessWidget {
   }
 }
 
-class WidgetPangan4 extends StatelessWidget {
-  const WidgetPangan4({
+class WidgetPekebunan4 extends StatelessWidget {
+  const WidgetPekebunan4({
     Key key,
   }) : super(key: key);
 
@@ -274,102 +289,21 @@ class WidgetPangan4 extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
+          Center(
+              child: Container(
+                  child: Image.asset(
+            'assets/perkebunan-img2.jpg',
+            height: Get.height,
+            width: Get.width,
+          ))),
           Text(
-            "Lahan sawah terluas di Indonesia terletak pada Pulau Jawa dan Sumatera, sedangkan lahan sawah terkecil berada di Pulau Maluku dan Papua.\n",
-            style: TextStyle(
-              // fontSize: 16,
-              // fontWeight: FontWeight.bold,
-              wordSpacing: 4,
-              color: Colors.white,
-              fontFamily: "FredokaOne",
-            ),
-          ),
-          Center(child: Container(child: Image.asset('assets/pertanian_1.png')))
-        ],
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-      ),
-    );
-  }
-}
-
-class WidgetPangan5 extends StatelessWidget {
-  const WidgetPangan5({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    String decs = "Lahan pertanian bukan sawah terdiri dari : \n" +
-        "1.	Tegal/kebun dengan luas 12,02 juta hektare yang sebagian besar berada di Pulau Jawa dan Maluku\n" +
-        "2.	Ladang/huma dengan luas sebesar 5,03 juta hektare dengan ladang terluas di Papua Barat\n" +
-        "3.	Lahan yang sementara tidah diusahakan dan di tanami tanaman semusim atau tahunan seluas 11,68 juta hektare sebagian di pulau Jawa. Terluas terdapat di Banten dengan 12,94 ribu hektare\n";
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Text(
-            "Lahan Pertanian Bukan Sawah\n",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              wordSpacing: 4,
-              color: Colors.white,
-              fontFamily: "FredokaOne",
-            ),
-          ),
-          Text(
-            decs,
+            "\n\nPersebaran perkebunan menurut zona iklim (Franz Junghuhn) :\n" +
+                "a. Zona panas (dataran rendah) yaitu kelapa, tebu, dan jagung\n" +
+                "b. Zona batas pantai dengan ketingian 700 meter diatas permukaan laut yaitu tebu, karet dan kopi\n" +
+                "c. Zona dengan ketinggian 700-1.500 meter diatas permukaan laut yaitu tanaman hortikultura, teh, kina",
             textAlign: TextAlign.justify,
             style: TextStyle(
-              // fontSize: 12,
-              wordSpacing: 2,
-              color: Colors.white,
-              fontFamily: "FredokaOne",
-            ),
-          ),
-        ],
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-      ),
-    );
-  }
-}
-
-class WidgetPangan6 extends StatelessWidget {
-  const WidgetPangan6({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    String decs = "1.	Tanaman Pangan (sumber karbohidrat dan protein), padi dengan produksi tertinggi di Jawa Timur, Jawa, Tengah, Jawa Barat. Lalu jagung, kedelai, kacang tanah, kacang hijau, ubi kayu, ubi jalar\n" +
-        "2.	Tanaman hortikultura (buah, sayur, rempah) Buah-buahan : Pisang di Lampung, Jawa Timur, Jawa Barat. Mangga di Jawa Timur dan Jawa " +
-        "Tengah. Nanas di Lampung. Jeruk di Jawa Timur dan +Aceh.\n"
-            "Sayur-sayuran : Kubis di Jawa Timur, Jawa Tengah, Jawa Barat dan Sumatera Utara, kentang, bawang merah dan cabai.\n" +
-        "3.	Florikultura (tanaman hias) yang utama adalah krisan di Jawa Tengah dan Jawa Barat. Mawar di Jawa Timur, sedap malam di Jawa Timur dan "
-            "Jawa Tengah. Anggrek di Jawa Barat dan Banten. \n" +
-        "4.	Rempah yang utama adalah Jahe di Jawa Timur. Kunyit di Jawa Timur dan Jawa Tengah. Lengukas di Jawa Tengah. Kencur di Jawa Tengah dan \n" +
-        "Kalimantan Selatan. Temu Lawak di Jawa Timur dan Jawa Tengah";
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Text(
-            "Lahan Pertanian menghasilkan beberapa kelompok tanam, yakni : \n",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              wordSpacing: 4,
-              color: Colors.white,
-              fontFamily: "FredokaOne",
-            ),
-          ),
-          Text(
-            decs,
-            textAlign: TextAlign.justify,
-            style: TextStyle(
-              // fontSize: 12,
+              // fontSize: 13,
               wordSpacing: 2,
               color: Colors.white,
               fontFamily: "FredokaOne",

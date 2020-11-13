@@ -1,133 +1,130 @@
 import 'package:flutter/material.dart';
-import 'package:mediainteaktifpangan/app/ui/settings/menus/Pengembang/PengembangScreen.dart';
-import 'package:mediainteaktifpangan/app/ui/settings/menus/kopetensiDasar/KopetensiDasarScreen.dart';
+import 'package:mediainteaktifpangan/app/controller/IndustriController.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
-import 'package:mediainteaktifpangan/app/ui/widgets/BoardDecorationWidget.dart';
+import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
 
-class MateriIndustriScreen extends StatefulWidget {
-  MateriIndustriScreen({Key key}) : super(key: key);
-
+class IndustriScreen extends StatefulWidget {
   @override
-  _MateriIndustriScreenState createState() => _MateriIndustriScreenState();
+  _IndustriScreenState createState() => _IndustriScreenState();
 }
 
-var menuList = [
-  {
-    "images": "assets/Icon/button-pangan-01.png",
-    "route": KopetensiDasarScreen(),
-    "name": "Kopetensi Dasar"
-  },
-  {
-    "images": "assets/Icon/button-industri-01.png",
-    "route": PengembangScreen(),
-    "name": "Tujuan"
-  },
-  {
-    "images": "assets/Icon/button-terbaru-01.png",
-    "route": PengembangScreen(),
-    "name": "Petunjuk Pengunaan"
-  },
-  {
-    "images": "assets/Icon/button-pengelolahan-01.png",
-    "route": PengembangScreen(),
-    "name": "Profil Pengembang"
-  },
-];
+class _IndustriScreenState extends State<IndustriScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
 
-class _MateriIndustriScreenState extends State<MateriIndustriScreen> {
   @override
   void initState() {
+    _controller = AnimationController(vsync: this);
     precacheImage(
-        new AssetImage("assets/Icon/button-industri-01.png"), Get.context);
+        new AssetImage("assets/Icon/menu-button-perikanan.png"), Get.context);
     precacheImage(new AssetImage("assets/bg_01.jpg"), Get.context);
 
     super.initState();
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print(Get.find<IndustriController>()
+        .menuList[Get.find<IndustriController>().pageIndex.value]['images']
+        .toString());
     return Scaffold(
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
-        content: Stack(
-          children: [
-            Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                margin: EdgeInsets.only(top: context.mediaQueryPadding.top),
-                height: Get.height * 0.7,
-                child: BoardBackground(
-                  dataContent: Center(
-                    child: Column(
-                      children: [
-                        Spacer(),
-                        Row(
+        content: GetX<IndustriController>(builder: (controller) {
+          return BoardTitleWidget(
+            widgetTitle: Get.find<IndustriController>()
+                .menuList[Get.find<IndustriController>().pageIndex.value]
+            ['images']
+                .toString(),
+            widgetContent: Center(
+              child: GetX<IndustriController>(
+                initState: (state) =>
+                    Get.find<IndustriController>().initparameter(),
+                builder: (controller) {
+                  print(
+                      Get.find<IndustriController>().pageIndex.value.toString());
+                  return Stack(
+                    children: [
+                      // Expanded(
+                      //   flex:1,
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.only(
+                      //         left: 16, right: 16, top: 16, bottom: 8),
+                      //     child: Align(
+                      //       alignment: Alignment.topLeft,
+                      //       child:
+                      //           Get.find<PertanianController>().menuList[
+                      //               Get.find<PertanianController>()
+                      //                   .pageIndex
+                      //                   .value]['route'],
+                      //     ),
+                      //   ),
+                      // ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 16, right: 16, top: 16, bottom: 40),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: Align(
+                            alignment: Alignment.topLeft,
+                            child: Get.find<IndustriController>().menuList[
+                            Get.find<IndustriController>()
+                                .pageIndex
+                                .value]['route'],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Expanded(
-                              flex: 1,
-                              child: GestureDetector(
-                                onTap: () => Get.to(menuList[0]['route'],
-                                    transition: Transition.cupertinoDialog,
-                                    duration: Duration(milliseconds: 700)),
-                                child: Container(
-                                    child: Image.asset(menuList[0]['images'],
-                                        height: 60, width: 60)),
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: GestureDetector(
-                                onTap: () => Get.to(menuList[1]['route'],
-                                    transition: Transition.zoom,
-                                    duration: Duration(milliseconds: 700)),
-                                child: Image.asset(menuList[1]['images'],
-                                    height: 60, width: 60),
-                              ),
-                            ),
+                            Obx(() =>
+                            Get.find<IndustriController>().pageIndex.value > 0
+                                ? GestureDetector(
+                              onTap: () =>
+                                  Get.find<IndustriController>()
+                                      .decrement(),
+                              child: Image.asset("assets/Icon/prev.png",
+                                  height: 40, width: 40),
+                            )
+                                : Container(height: 40, width: 40)),
+                            Obx(() => Get.find<IndustriController>()
+                                .pageIndex
+                                .value <
+                                Get.find<IndustriController>()
+                                    .menuList
+                                    .length -
+                                    1
+                                ? GestureDetector(
+                              onTap: () => Get.find<IndustriController>()
+                                  .increment(),
+                              child: Image.asset("assets/Icon/next.png",
+                                  height: context.isTablet ? 60 : 40,
+                                  width: context.isTablet ? 60 : 40),
+                            )
+                                : Container(
+                                height: context.isTablet ? 60 : 40,
+                                width: context.isTablet ? 60 : 40)),
                           ],
                         ),
-                        SizedBox(
-                          height: Get.height * 0.05,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: GestureDetector(
-                                onTap: () => Get.to(menuList[2]['route'],
-                                    transition: Transition.cupertinoDialog,
-                                    duration: Duration(milliseconds: 700)),
-                                child: Image.asset(menuList[2]['images'],
-                                    height: 60, width: 60),
-                              ),
-                            ),
-                            Expanded(
-                              child: GestureDetector(
-                                onTap: () => Get.to(menuList[3]['route'],
-                                    transition: Transition.cupertinoDialog,
-                                    duration: Duration(milliseconds: 700)),
-                                child: Image.asset(menuList[3]['images'],
-                                    height: 60, width: 60),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Spacer(),
-                      ],
-                    ),
-                  ),
-                ),
+                      ),
+                    ],
+                  );
+                },
               ),
             ),
-            Align(
-              alignment: Alignment.topCenter,
-              child: Image.asset("assets/Icon/button-industri-01.png",
-                  height: Get.height * 0.2, width: Get.width * 0.3),
-            )
-          ],
-        ),
+          );
+        },),
         custombar: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -143,6 +140,136 @@ class _MateriIndustriScreenState extends State<MateriIndustriScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class WidgetIndustri1 extends StatelessWidget {
+  const WidgetIndustri1({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Text(
+            "Potensi dan Persebaran Sumber Daya Untuk Penyedia Bahan Industri\n",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              fontFamily: "FredokaOne",
+              wordSpacing: 4,
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Menurut UU RI Nomor 3 Tahun 2014, Industri adalah seluruh bentuk kegiatan ekonomi yang mengolah bahan baku dan/ atau memanfaatkan sumber daya industri sehingga menghasilkan barang yang mempunyai nilai tambah atau manfaat lebih tinggi, termasuk jasa industri. Bahan baku adalah bahan mentah, barang setengah jadi, atau barang jadi yang dapat diolah menjadi barang setengah jadi atau barang jadi yang mempunyai nilai ekonomi lebih tinggi. Bahan mentah adalah bahan yang diambil langsung dari alam atau yang diperoleh dari usaha manusia untuk memenuhi kebutuhan industri. ",
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              // fontSize: 13,
+              wordSpacing: 2,
+              color: Colors.white,
+              fontFamily: "FredokaOne",
+            ),
+          ),
+        ],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+      ),
+    );
+  }
+}
+
+class WidgetIndustri2 extends StatelessWidget {
+  const WidgetIndustri2({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Text(
+            "Jenis-jenis industri menurut bahan bakunya :\n",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              fontFamily: "FredokaOne",
+              wordSpacing: 4,
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "1. Industri Ekstraktif\n" +
+                "Bahan bakunya diperoleh langsung dari alam. Seluruh industri yang bergerak pada bidang dengan bahan baku utama dari hasil-hasil alam\n" +
+                "2. Industri Non-Ekstraktif\n" +
+                "Industri yang mengolah lebih lanjut hasil-hasil industri lain. memfasilitasi untuk memenuhi kebutuhan sehari-hari sepertikebutuhan furniture kebutuhanuhan pakaian sampai kendaraan.\n" +
+                "3. Industri Fasilitatif\n" +
+                "Kegiatan industri yang menjual jasa layanan untuk keperluan orang lain.",
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              // fontSize: 13,
+              wordSpacing: 2,
+              color: Colors.white,
+              fontFamily: "FredokaOne",
+            ),
+          ),
+        ],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+      ),
+    );
+  }
+}
+
+class WidgetIndustri3 extends StatelessWidget {
+  const WidgetIndustri3({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Text(
+            "Dalam wilayah pengembangan industri, Wilayah Pusat Perindustrian Indonesia (WPPI) berperan sebagai penggerak utama ekonomi. WPPI disusun atas dasar kriteria berikut :\n",
+            style: TextStyle(
+              // fontSize: 16,
+              // fontWeight: FontWeight.bold,
+              fontFamily: "FredokaOne",
+              wordSpacing: 4,
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "1. Potensi sumber daya alam (agro atau migas)\n" +
+                "2. Ketersediaan infrastruktur transportasi\n" +
+                "3. Kebijakan affirmatif untuk pengembangan industri ke luar pulau Jawa\n" +
+                "4. Kualitas dan kuantitas sumber daya manusia\n" +
+                "5. Penguatan dan pendalaman rantai nilai\n" +
+                "6. Memiliki potensi energi yang berasal dari sumber daya alam (batu bara, panas bumi atau air)\n" +
+                "7. Memiliki potensi sumber daya air untuk aktivitas industri\n" +
+                "8. Memiliki potensi dalam perwujudan revolusi hijau\n" +
+                "9. Memiliki kesiapan dalam pemanfaatan jaringan inovasi dan teknologi.",
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              // fontSize: 13,
+              wordSpacing: 2,
+              color: Colors.white,
+              fontFamily: "FredokaOne",
+            ),
+          ),
+        ],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
       ),
     );
   }

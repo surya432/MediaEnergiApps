@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mediainteaktifpangan/app/ui/settings/menus/Pengembang/PengembangScreen.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
@@ -13,23 +12,23 @@ class MateriPanganScreen extends StatefulWidget {
 
 var menuList = [
   {
-    "images": "assets/Icon/button-pangan-01.png",
+    "images": "assets/Icon/menu-button-pertanian.png",
     "route": "/Pertanian",
     "name": "Kopetensi Dasar"
   },
   {
-    "images": "assets/Icon/button-industri-01.png",
-    "route": PengembangScreen(),
+    "images": "assets/Icon/menu-button-perkebunan.png",
+    "route": "/Perkebunan",
     "name": "Tujuan"
   },
   {
-    "images": "assets/Icon/button-terbaru-01.png",
-    "route": PengembangScreen(),
+    "images": "assets/Icon/menu-button-perikanan.png",
+    "route": "/Perikanan",
     "name": "Petunjuk Pengunaan"
   },
   {
-    "images": "assets/Icon/button-pengelolahan-01.png",
-    "route": PengembangScreen(),
+    "images": "assets/Icon/menu-button-pertenakan.png",
+    "route": "/Peternakan",
     "name": "Profil Pengembang"
   },
 ];
@@ -69,9 +68,9 @@ class _MateriPanganScreenState extends State<MateriPanganScreen> {
                     Expanded(
                       flex: 1,
                       child: GestureDetector(
-                        onTap: () => Get.to(menuList[1]['route'],
-                            transition: Transition.zoom,
-                            duration: Duration(milliseconds: 700)),
+                        onTap: () => Get.toNamed(
+                          menuList[1]['route'],
+                        ),
                         child: Image.asset(menuList[1]['images'],
                             height: 60, width: 60),
                       ),
@@ -86,18 +85,16 @@ class _MateriPanganScreenState extends State<MateriPanganScreen> {
                   children: [
                     Expanded(
                       child: GestureDetector(
-                        onTap: () => Get.to(menuList[2]['route'],
-                            transition: Transition.cupertinoDialog,
-                            duration: Duration(milliseconds: 700)),
+                        onTap: () => Get.toNamed(menuList[2]['route']
+                         ),
                         child: Image.asset(menuList[2]['images'],
                             height: 60, width: 60),
                       ),
                     ),
                     Expanded(
                       child: GestureDetector(
-                        onTap: () => Get.to(menuList[3]['route'],
-                            transition: Transition.cupertinoDialog,
-                            duration: Duration(milliseconds: 700)),
+                        onTap: () => Get.toNamed(menuList[3]['route'],
+                            ),
                         child: Image.asset(menuList[3]['images'],
                             height: 60, width: 60),
                       ),

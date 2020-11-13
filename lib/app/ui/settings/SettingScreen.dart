@@ -113,7 +113,7 @@ class _SettingScreenState extends State<SettingScreen> {
               ],
             ),
           ),
-          widgetTitle:  "assets/Icon/button-pengaturan-01.png",
+          widgetTitle: "assets/Icon/button-pengaturan-01.png",
         ),
         custombar: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

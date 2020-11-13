@@ -21,12 +21,9 @@ class QuizScreen extends StatelessWidget {
                 GetX<QuizController>(
                   builder: (_) {
                     if (_.numberQuiz.value >= _.data.length) {
-                      String total = _.getTotalBenar.toString();
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child:
-                            Text("Jawaban Yang Benar $total Soal dari 10 Soal"),
-                      );
+                      // String total = _.getTotalBenar.toString();
+
+                       return Container();
                     } else {
                       int quizindex = _.numberQuiz.value;
                       String question = _.data[quizindex]["pertanyaan"];

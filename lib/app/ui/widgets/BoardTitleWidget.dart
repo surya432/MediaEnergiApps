@@ -35,10 +35,10 @@ class BoardTitleWidget extends StatelessWidget {
             child: Align(
               alignment: Alignment.topCenter,
               child: Image.asset(
-           widgetTitle,
-            height: context.isTablet ? Get.height * 0.1 : Get.height * 0.2,
-            width: Get.width * 0.3,
-          ),
+                widgetTitle,
+                height: context.isTablet ? Get.height * 0.1 : Get.height * 0.2,
+                width: Get.width * 0.3,
+              ),
             ),
           ),
         ],

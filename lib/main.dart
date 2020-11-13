@@ -2,9 +2,21 @@ import 'package:asset_cache/asset_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:mediainteaktifpangan/app/binding/EnergiBinding.dart';
+import 'package:mediainteaktifpangan/app/binding/IndustriBinding.dart';
+import 'package:mediainteaktifpangan/app/binding/PengelolahanBinding.dart';
+import 'package:mediainteaktifpangan/app/binding/PeternakanBinding.dart';
+import 'package:mediainteaktifpangan/app/binding/PerikananBinding.dart';
+import 'package:mediainteaktifpangan/app/binding/PerkebunanBinding.dart';
 import 'package:mediainteaktifpangan/app/binding/PertanianBinding.dart';
 import 'package:mediainteaktifpangan/app/binding/QuizBinding.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/Energi/Materi_Energi.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/industri/Materi_Industri.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/pangan/Peternakan.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/pangan/Perikanan.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/pangan/Perkebunan.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pangan/Pertanian.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Materi_Pengelolahan.dart';
 import 'package:mediainteaktifpangan/app/ui/quiz/QuizScreen.dart';
 
 import 'app/ui/splashscreen/splashScreen.dart';
@@ -51,6 +63,40 @@ class MyApp extends StatelessWidget {
           name: '/Pertanian',
           page: () => MateriPertanian(),
           binding: PertanianBinding(),
+          transition: Transition.zoom,
+        ),
+        GetPage(
+          name: '/Perkebunan',
+          page: () => PerkebunanScreen(),
+          binding: PerkebunanBinding(),
+          transition: Transition.zoom,
+        ),
+        GetPage(
+          name: '/Perikanan',
+          page: () => PerikananScreen(),
+          binding: PerikananBinding(),
+          transition: Transition.zoom,
+        ),
+        GetPage(
+          name: '/Peternakan',
+          page: () => PeternakanScreen(),
+          binding: PeternakanBinding(),
+          transition: Transition.zoom,
+        ),
+        GetPage(
+          name: '/Industri',
+          page: () => IndustriScreen(),
+          binding: IndustriBinding(),
+          transition: Transition.zoom,
+        ),  GetPage(
+          name: '/Energi',
+          page: () => EnergiScreen(),
+          binding: EnergiBinding(),
+          transition: Transition.zoom,
+        ), GetPage(
+          name: '/Pengelolahan',
+          page: () => PengelolahanScreen(),
+          binding: PengelolahanBinding(),
           transition: Transition.zoom,
         ),
       ],

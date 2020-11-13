@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:mediainteaktifpangan/app/ui/quiz/QuizDoneScreen.dart';
 
 class QuizController extends GetxController {
   var data = List<Map<dynamic, dynamic>>().obs;
@@ -32,6 +33,11 @@ class QuizController extends GetxController {
     numberQuiz.value = numberQuiz.value + 1;
     // update();
     print(numberQuiz.toString());
+    if(numberQuiz>=data.length){
+
+      Get.off(QuizDoneScreen(),arguments: javabne);
+
+    }
     // new Future.delayed(const Duration(seconds: 1), () => "1");
     // klik.value = "";
     // onclickj.value = !onclickj.value;
