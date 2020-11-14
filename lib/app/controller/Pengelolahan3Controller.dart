@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Materi_Pengelolahan.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Materi_Pengelolahan3.dart';
 
 class Pengelolahan3Controller extends GetxController{
