@@ -174,7 +174,7 @@ class WidgetPengelolahan1 extends StatelessWidget {
             ),
           ),
           Text(
-                "Pertanian merupakan komponen utama dalam penyediaan bahan pangan. Pelestarian pertanian adalah tindakan pengelolaan dan penggunaan lahan pertanian untuk usaha perbaikan dan pengingkatan mutunya serta pemeliharaan keseimbangan ekologis untuk memperoleh sistem produksi berkelanjutan.",
+            "Pertanian merupakan komponen utama dalam penyediaan bahan pangan. Pelestarian pertanian adalah tindakan pengelolaan dan penggunaan lahan pertanian untuk usaha perbaikan dan pengingkatan mutunya serta pemeliharaan keseimbangan ekologis untuk memperoleh sistem produksi berkelanjutan.",
             textAlign: TextAlign.justify,
             style: TextStyle(
               // fontSize: 13,
@@ -202,8 +202,8 @@ class WidgetPengelolahan2 extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-            Text(
-     "Tindakan pelestarian harus memperhatikan :\n" ,
+          Text(
+            "Tindakan pelestarian harus memperhatikan :\n",
             textAlign: TextAlign.justify,
             style: TextStyle(
               fontSize: 16,
@@ -213,8 +213,7 @@ class WidgetPengelolahan2 extends StatelessWidget {
             ),
           ),
           Text(
-            
-                "a. Pencegahan erosi permukaan tanah (kulturteknis, biologis, teknis mekanis)\n" +
+            "a. Pencegahan erosi permukaan tanah (kulturteknis, biologis, teknis mekanis)\n" +
                 "b. Pencegahan teknik budi daya tanaman yang bersifat penambangan hara tanah secara esploitatif\n" +
                 "c. Pergiliran varietas dan penanaman multivarietas pada satu hamparan\n" +
                 "d. Pemeliharaan prasarana irigrasi, tata guna air, waduk, sumber air dan wilayah resapan air\n" +

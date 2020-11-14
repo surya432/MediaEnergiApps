@@ -17,7 +17,7 @@ class _PeternakanScreenState extends State<PeternakanScreen>
   void initState() {
     _controller = AnimationController(vsync: this);
     precacheImage(
-        new AssetImage("assets/Icon/menu-button-Peternakan.png"), Get.context);
+        new AssetImage("assets/Icon/btn_pangan-04.png"), Get.context);
     precacheImage(new AssetImage("assets/bg_01.jpg"), Get.context);
 
     super.initState();

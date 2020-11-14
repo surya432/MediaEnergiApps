@@ -51,13 +51,11 @@ class QuizScreen extends StatelessWidget {
                                 String jawabannya =
                                     _.data[quizindex]["jawabanbenar"];
                                 var icon = jawabannya == answer
-                                    ? Icon(
-                                        Icons.print,
-                                        size: 16,
-                                      )
+                                    ? Image.asset("assets/Icon/btn-check-05.png",height: 16,width: 16,)
                                     : Icon(
                                         Icons.close,
                                         size: 16,
+                                        color: Colors.red,
                                       );
                                 return Padding(
                                   padding: const EdgeInsets.only(left: 8),
@@ -78,7 +76,14 @@ class QuizScreen extends StatelessWidget {
                                             color: Colors.white,
                                           ),
                                         ),
-                                        if (_.onclickj.value) icon,
+                                        SizedBox(width: 8,),
+                                        GetX<QuizController>(builder: (controller) {
+                                          if(_.onclickj.value){
+                                            return icon;
+                                          }else{
+                                            return Container();
+                                          }
+                                        },) ,
                                       ],
                                     ),
                                   ),

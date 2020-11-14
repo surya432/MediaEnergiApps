@@ -28,9 +28,6 @@ class PerkebunanController extends GetxController {
         "route": WidgetPekebunan3(),
       },
       {
-        "route": WidgetPekebunan31(),
-      },
-      {
         "route": WidgetPekebunan4(),
       },
       {

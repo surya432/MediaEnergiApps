@@ -48,14 +48,7 @@ class _MateriPengelolaanScreenState extends State<MateriPengelolaanScreen> {
           widgetContent: Center(
             child: Column(
               children: [
-                SizedBox(height: 20,),
-                Text("Pengelolaan Sumber Daya Penyediaan Bahan Pangan, Industri dan Energi Baru dam Terbarukan di Indonesia",textAlign: TextAlign.justify,
-            style: TextStyle(
-              fontSize: 18,
-              wordSpacing: 2,
-              color: Colors.white,
-              fontFamily: "FredokaOne",
-            ),),
+  
                 Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

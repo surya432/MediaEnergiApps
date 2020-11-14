@@ -163,7 +163,7 @@ class WidgetPengelolahan3 extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-            Text(
+          Text(
             "Pengelolaan Bahan Industri\n",
             textAlign: TextAlign.justify,
             style: TextStyle(
@@ -174,8 +174,7 @@ class WidgetPengelolahan3 extends StatelessWidget {
             ),
           ),
           Text(
-           
-                "Salah satu tujuan perindustrian adalah mewujudkan industri yang mandiri, berdaya saing, maju serta industri hijau yang mana dalam proses produksinya mengutamakan upaya efisiensi dan efektivitas penggunaan sumber daya secara berkelanjutan sehingga mampu menyelaraskan pembangunan industri dengan kelestarian fungsi lingkungan hidup.",
+            "Salah satu tujuan perindustrian adalah mewujudkan industri yang mandiri, berdaya saing, maju serta industri hijau yang mana dalam proses produksinya mengutamakan upaya efisiensi dan efektivitas penggunaan sumber daya secara berkelanjutan sehingga mampu menyelaraskan pembangunan industri dengan kelestarian fungsi lingkungan hidup.",
             textAlign: TextAlign.justify,
             style: TextStyle(
               // fontSize: 13,

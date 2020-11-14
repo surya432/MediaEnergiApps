@@ -6,47 +6,48 @@ class QuizController extends GetxController {
   var numberQuiz = 0.obs;
   var onclickj = false.obs;
   var klik = "".obs;
+  int javabne = 0;
+  var jawabbenar = "".obs;
+  get getTotalBenar => javabne;
+
   @override
   void onInit() {
     initparameter();
-    // interval(klik, (_) => checkanswer(_));
-    debounce(onclickj, (_) => checkanswer(_), time: Duration(seconds: 1));
+    // interval(onclickj, (_) => checkanswer(),time: Duration(milliseconds: 2500));
+    debounce(onclickj, (_) => checkanswer(), time: Duration(milliseconds: 2500));
     // debounce(numberQuiz, (_) => nextpertanyaan(),
     //     time: Duration(milliseconds: 250));
     super.onInit();
   }
 
-  int javabne = 0;
-  get getTotalBenar => javabne;
-  klikjawab(String answer, String jwbbenar) {
-    onclickj.value = true;
-    klik.value = answer;
-    onclickj.value = false;
-    if (answer == jwbbenar) {
+  checkanswer() {
+    if (klik.value == jawabbenar.value) {
       javabne++;
       print("Jawaban Benar");
     } else {
       print("Jawaban salah");
     }
-    print(javabne);
+    onclickj.value = false;
 
     numberQuiz.value = numberQuiz.value + 1;
     // update();
-    print(numberQuiz.toString());
-    if(numberQuiz>=data.length){
-
-      Get.off(QuizDoneScreen(),arguments: javabne);
-
+    if (numberQuiz >= data.length) {
+      Get.off(QuizDoneScreen(), arguments: javabne);
     }
-    // new Future.delayed(const Duration(seconds: 1), () => "1");
-    // klik.value = "";
-    // onclickj.value = !onclickj.value;
-    // if (numberQuiz.value < data.length) {
-    //   int next = numberQuiz.value++;
-    //   numberQuiz.value = next;
-    // } else {
-    //   numberQuiz.value = 0;
-    // }
+  
+  }
+
+  klikjawab(String answer, String jwbbenar) {
+    if (!onclickj.value) {
+      print("klik lagi true");
+      onclickj.value = true;
+      klik.value = answer;
+      jawabbenar.value = jwbbenar;
+    } else {
+      print("klik lagi false");
+    }
+
+   
   }
 
   void initparameter() async {
@@ -155,7 +156,7 @@ class QuizController extends GetxController {
             "\t\t\t4)	Kalimantan Tengah, dan \n"
             "\t\t\t5)	Sulawesi Tenggara.\n"
             "\t\t\tWilayah perkebunan kelapa sawit ditunjukan nomor?\n",
-        "jawabanbenar": "a.	Pengelolaannya",
+        "jawabanbenar": "e.	2), 3) dan 4)",
         "jawaban": [
           "a.	1), 2) dan 3)",
           "b.	3), 4) dan 5)",
@@ -196,17 +197,6 @@ class QuizController extends GetxController {
         ]
       },
     ];
-  }
-
-  checkanswer(param0) {
-    print("klikjawab " + param0.toString());
-
-    // klik.value = "";
-    // if (numberQuiz < data.length) {
-    //   numberQuiz.value++;
-    // } else {
-    //   numberQuiz.value = 0;
-    // }
   }
 
   nextpertanyaan() {

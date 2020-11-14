@@ -35,7 +35,7 @@ class _PerkebunanScreenState extends State<PerkebunanScreen>
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
         content: BoardTitleWidget(
-          widgetTitle: "assets/Icon/menu-button-perkebunan.png",
+          widgetTitle: "assets/Icon/btn_pangan-03.png",
           widgetContent: Center(
             child: GetX<PerkebunanController>(
               initState: (state) =>
@@ -346,10 +346,24 @@ class WidgetPekebunan4 extends StatelessWidget {
         children: [
           Center(
               child: Container(
-                  child: Image.asset(
-            'assets/perkebunan-img2.jpg',
-            height: Get.height,
-            width: Get.width,
+                  child: Column(
+            children: [
+              Text(
+                "b. Perkebunan tanaman musim (tanaman umur pendek). Contohnya tembakau, tebu, sereh wangi, jarak kepyer, nilam",
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                  // fontSize: 13,
+                  wordSpacing: 2,
+                  color: Colors.white,
+                  fontFamily: "FredokaOne",
+                ),
+              ),
+              Image.asset(
+                'assets/perkebunan-img2.jpg',
+                height: Get.height,
+                width: Get.width,
+              ),
+            ],
           ))),
         ],
         crossAxisAlignment: CrossAxisAlignment.start,
