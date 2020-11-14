@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/binding/EnergiBinding.dart';
 import 'package:mediainteaktifpangan/app/binding/IndustriBinding.dart';
+import 'package:mediainteaktifpangan/app/binding/Pengelolahan2Binding.dart';
+import 'package:mediainteaktifpangan/app/binding/Pengelolahan3Binding.dart';
 import 'package:mediainteaktifpangan/app/binding/PengelolahanBinding.dart';
 import 'package:mediainteaktifpangan/app/binding/PeternakanBinding.dart';
 import 'package:mediainteaktifpangan/app/binding/PerikananBinding.dart';
@@ -17,6 +19,8 @@ import 'package:mediainteaktifpangan/app/ui/materi/pangan/Perikanan.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pangan/Perkebunan.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pangan/Pertanian.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Materi_Pengelolahan.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Materi_Pengelolahan3.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Materi_Pengelolahan2.dart';
 import 'package:mediainteaktifpangan/app/ui/quiz/QuizScreen.dart';
 
 import 'app/ui/splashscreen/splashScreen.dart';
@@ -88,15 +92,29 @@ class MyApp extends StatelessWidget {
           page: () => IndustriScreen(),
           binding: IndustriBinding(),
           transition: Transition.zoom,
-        ),  GetPage(
+        ),
+        GetPage(
           name: '/Energi',
           page: () => EnergiScreen(),
           binding: EnergiBinding(),
           transition: Transition.zoom,
-        ), GetPage(
+        ),
+        GetPage(
           name: '/Pengelolahan',
           page: () => PengelolahanScreen(),
           binding: PengelolahanBinding(),
+          transition: Transition.zoom,
+        ),
+        GetPage(
+          name: '/Pengelolahan2',
+          page: () => Pengelolahan2Screen(),
+          binding: Pengelolahan2Binding(),
+          transition: Transition.zoom,
+        ),
+         GetPage(
+          name: '/Pengelolahan3',
+          page: () => Pengelolahan3Screen(),
+          binding: Pengelolahan3Binding(),
           transition: Transition.zoom,
         ),
       ],

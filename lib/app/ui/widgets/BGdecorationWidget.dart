@@ -7,10 +7,12 @@ class BGContainerWidget extends StatelessWidget {
     @required this.custombar,
     @required this.content,
     @required this.kPaddingTop,
+    this.isPadding = true
   }) : super(key: key);
   final Widget custombar;
   final Widget content;
   final double kPaddingTop;
+  final bool isPadding;
   @override
   Widget build(BuildContext context) {
     print(kPaddingTop);
@@ -25,7 +27,7 @@ class BGContainerWidget extends StatelessWidget {
       decoration: boxDecoration,
       height: Get.height,
       width: Get.width,
-      padding: EdgeInsets.only(top: paddintop, left: 24, right: 24, bottom: 16),
+      padding: isPadding?EdgeInsets.only(top: paddintop, left: 24, right: 24, bottom: 16):EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 0),
       child: Stack(
         children: [
           custombar,

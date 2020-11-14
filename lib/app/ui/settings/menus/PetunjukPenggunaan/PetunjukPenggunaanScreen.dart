@@ -34,12 +34,61 @@ class _PetunjukPenggunaanScreenState extends State<PetunjukPenggunaanScreen> {
                 height: Get.height * 0.7,
                 child: BoardBackground(
                   dataContent: Container(
-                    child: Center(
+                    margin: EdgeInsets.only(top: 25),
+                    child: SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
                         children: [
-                          SizedBox(
-                            height: 40,
+                          Text(
+                            "Gunakan media interaktif ini untuk mempermudah proses pembelajaran Geografi materi Ketahanan Pangan, Industri dan Energi di Indonesia. Perhatikan setiap materi yang disajikan dan asah kemampuan mu di kuis sebagai bahan evaluasi. tombol yang dapat di gunakan",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontFamily: "Gothic",
+                            ),
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Image.asset("assets/Icon/button-14.png",
+                                  height: Get.height * 0.2,
+                                  width: Get.width * 0.3),
+                              Image.asset("assets/Icon/button-10.png",
+                                  height: Get.height * 0.2,
+                                  width: Get.width * 0.3),
+                            ],
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Image.asset("assets/Icon/button-kuis-01.png",
+                                  height: Get.height * 0.2,
+                                  width: Get.width * 0.3),
+                              SizedBox(width: 8),
+                              Image.asset("assets/Icon/button-materi-01.png",
+                                  height: Get.height * 0.2,
+                                  width: Get.width * 0.3),
+                            ],
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Image.asset("assets/Icon/button-16.png",
+                                  height: Get.height * 0.2,
+                                  width: Get.width * 0.3),
+                              SizedBox(width: 8),
+                              Image.asset("assets/Icon/button-17.png",
+                                  height: Get.height * 0.2,
+                                  width: Get.width * 0.3),
+                            ],
                           ),
                         ],
                       ),

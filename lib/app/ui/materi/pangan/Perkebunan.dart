@@ -203,10 +203,46 @@ class WidgetPekebunan2 extends StatelessWidget {
           ),
           Text(
             "a. Usaha Budi Daya Tanaman Perkebunan adalah pengusaha tanaman perkebunan yang meliputi kegiatan pratanam, penanaman, pemelihaaan tanaman, pemanen dan sortasi\n" +
-                "b. Usaha Industri Pengolahan Hasil Perkebunan adalah kegiatan penanganan dan pemrosesan yang dilakukan terhadap hasil tanaman perkebunan" +
-                "Perkebunan menurut pengelolaannya :\n" +
-                "a. Perkebunan besar, dikelola perusahaan berbadan hukum secara komersial dengan lahan yang luas, modal besar dan teknologi yang maju. Biasanya mengelola kelapa sawit, teh, tebu, cokelat\n"
-                    "b. Perkebunan kecil, dikelola rakyat dengan luas lahan dan modal yang terbatas serta teknologi yang sederhana. Contohnya kopi, cengkeh, karet.",
+                "b. Usaha Industri Pengolahan Hasil Perkebunan adalah kegiatan penanganan dan pemrosesan yang dilakukan terhadap hasil tanaman perkebunan",
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              // fontSize: 13,
+              wordSpacing: 2,
+              color: Colors.white,
+              fontFamily: "FredokaOne",
+            ),
+          ),
+        ],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+      ),
+    );
+  }
+}
+
+class WidgetPekebunan21 extends StatelessWidget {
+  const WidgetPekebunan21({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Text(
+            "Perkebunan menurut pengelolaannya :\n",
+            style: TextStyle(
+              fontSize: 16,
+              wordSpacing: 4,
+              color: Colors.white,
+              fontFamily: "FredokaOne",
+            ),
+          ),
+          Text(
+            "a. Perkebunan besar, dikelola perusahaan berbadan hukum secara komersial dengan lahan yang luas, modal besar dan teknologi yang maju. Biasanya mengelola kelapa sawit, teh, tebu, cokelat\n"
+            "b. Perkebunan kecil, dikelola rakyat dengan luas lahan dan modal yang terbatas serta teknologi yang sederhana. Contohnya kopi, cengkeh, karet.",
             textAlign: TextAlign.justify,
             style: TextStyle(
               // fontSize: 13,
@@ -260,6 +296,25 @@ class WidgetPekebunan3 extends StatelessWidget {
             height: Get.height * .6,
             width: Get.width * .6,
           ))),
+        ],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+      ),
+    );
+  }
+}
+
+class WidgetPekebunan31 extends StatelessWidget {
+  const WidgetPekebunan31({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
           Text(
             "b. Perkebunan tanaman musim (tanaman umur pendek). Contohnya tembakau, tebu, sereh wangi, jarak kepyer, nilam",
             textAlign: TextAlign.justify,
@@ -296,6 +351,25 @@ class WidgetPekebunan4 extends StatelessWidget {
             height: Get.height,
             width: Get.width,
           ))),
+        ],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+      ),
+    );
+  }
+}
+
+class WidgetPekebunan5 extends StatelessWidget {
+  const WidgetPekebunan5({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
           Text(
             "\n\nPersebaran perkebunan menurut zona iklim (Franz Junghuhn) :\n" +
                 "a. Zona panas (dataran rendah) yaitu kelapa, tebu, dan jagung\n" +

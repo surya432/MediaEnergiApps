@@ -164,7 +164,7 @@ class WidgetPengelolahan1 extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "Pengelolaan Sumber Daya Penyediaan Bahan Pangan, Industri dan Energi Baru dam Terbarukan di Indonesia\n",
+            "Pengelolaan Bahan Pangan\n",
             style: TextStyle(
               fontSize: 16,
               // fontWeight: FontWeight.bold,
@@ -174,7 +174,6 @@ class WidgetPengelolahan1 extends StatelessWidget {
             ),
           ),
           Text(
-            "1. Pengelolaan Bahan Pangan\n" +
                 "Pertanian merupakan komponen utama dalam penyediaan bahan pangan. Pelestarian pertanian adalah tindakan pengelolaan dan penggunaan lahan pertanian untuk usaha perbaikan dan pengingkatan mutunya serta pemeliharaan keseimbangan ekologis untuk memperoleh sistem produksi berkelanjutan.",
             textAlign: TextAlign.justify,
             style: TextStyle(
@@ -203,144 +202,23 @@ class WidgetPengelolahan2 extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
+            Text(
+     "Tindakan pelestarian harus memperhatikan :\n" ,
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              fontSize: 16,
+              wordSpacing: 2,
+              color: Colors.white,
+              fontFamily: "FredokaOne",
+            ),
+          ),
           Text(
-            "Tindakan pelestarian harus memperhatikan :\n" +
+            
                 "a. Pencegahan erosi permukaan tanah (kulturteknis, biologis, teknis mekanis)\n" +
                 "b. Pencegahan teknik budi daya tanaman yang bersifat penambangan hara tanah secara esploitatif\n" +
                 "c. Pergiliran varietas dan penanaman multivarietas pada satu hamparan\n" +
                 "d. Pemeliharaan prasarana irigrasi, tata guna air, waduk, sumber air dan wilayah resapan air\n" +
                 "e. Pendidikan, pelatihan dan penyadaran petani akan pentingnya pemeliharaan kelestarian lahan pertanian",
-            textAlign: TextAlign.justify,
-            style: TextStyle(
-              // fontSize: 13,
-              wordSpacing: 2,
-              color: Colors.white,
-              fontFamily: "FredokaOne",
-            ),
-          ),
-        ],
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-      ),
-    );
-  }
-}
-
-class WidgetPengelolahan3 extends StatelessWidget {
-  const WidgetPengelolahan3({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Text(
-            "2. Pengelolaan Bahan Industri\n" +
-                "Salah satu tujuan perindustrian adalah mewujudkan industri yang mandiri, berdaya saing, maju serta industri hijau yang mana dalam proses produksinya mengutamakan upaya efisiensi dan efektivitas penggunaan sumber daya secara berkelanjutan sehingga mampu menyelaraskan pembangunan industri dengan kelestarian fungsi lingkungan hidup.",
-            textAlign: TextAlign.justify,
-            style: TextStyle(
-              // fontSize: 13,
-              wordSpacing: 2,
-              color: Colors.white,
-              fontFamily: "FredokaOne",
-            ),
-          ),
-        ],
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-      ),
-    );
-  }
-}
-
-class WidgetPengelolahan4 extends StatelessWidget {
-  const WidgetPengelolahan4({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Text(
-            "Pemanfaatan SDA secara efisien dilakukan melalui :\n" +
-                "a. Penghematan\n" +
-                "b. Penggunaan teknologi yang ramah lingkungan\n" +
-                "c. Optimalisasi kinerja proses produksi\n" +
-                "Pemanfaatan SDA ramah lingkungan dan berkelanjutan dilakukan melalui:\n" +
-                "a. Pengurangan limbah\n" +
-                "b. Penggunaan kembali\n" +
-                "c. Pengolahan kembali\n" +
-                "d. Pemulihan",
-            textAlign: TextAlign.justify,
-            style: TextStyle(
-              // fontSize: 13,
-              wordSpacing: 2,
-              color: Colors.white,
-              fontFamily: "FredokaOne",
-            ),
-          ),
-        ],
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-      ),
-    );
-  }
-}
-
-class WidgetPengelolahan5 extends StatelessWidget {
-  const WidgetPengelolahan5({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-
-          Text("3. Pengelolaan Energi Baru dan Terbarukan\n"+
-            "Pengembangan sumber energi yang terbarukan sebagai sumber energi alternatif harus dilakukan karena :\n" +
-                "a. Permintaan energi meningkat dengan pesat karena industrialisasi dan pertumbuhan penduduk yang pesat\n" +
-                "b. Sumber energi fosil tidak terbarukan\n" +
-                "c. Sumber konvensional  (bahan bakar fosil) juga menyebabkan polusi",
-            textAlign: TextAlign.justify,
-            style: TextStyle(
-              // fontSize: 13,
-              wordSpacing: 2,
-              color: Colors.white,
-              fontFamily: "FredokaOne",
-            ),
-          ),
-        ],
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-      ),
-    );
-  }
-}
-
-class WidgetPengelolahan6 extends StatelessWidget {
-  const WidgetPengelolahan6({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Text(
-            "Pemanfaatan sumber energi terbarukan :\n" +
-                "1. Jenis energi aliran dan air terjun, energi panas bumi, energi gerakan dan perbedaan suhu lapisan laut dan energi angin diarahkan untuk ketenagalistrikan\n" +
-                "2. Pemanfaatan sumber energi terbarukan dari jenis energi sinar matahari diarahkan untuk ketenagalistrikan dan energi nonlistrik untuk industri, rumah tangga, dan transportasi",
             textAlign: TextAlign.justify,
             style: TextStyle(
               // fontSize: 13,

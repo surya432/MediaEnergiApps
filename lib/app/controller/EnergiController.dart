@@ -26,6 +26,9 @@ class EnergiController extends GetxController{
       {
         "route": WidgetEnergi3(),
         "images":"assets/Icon/button-terbaru-01.png",
+      }, {
+        "route": WidgetEnergi31(),
+        "images":"assets/Icon/button-terbaru-01.png",
       },
 
 

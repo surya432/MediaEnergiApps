@@ -185,7 +185,7 @@ class WidgetPeternakan2 extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
-                        "Ternak Besar",
+                        "Ternak Besar".toUpperCase(),
                         style: TextStyle(
                             fontSize: 13,
                             fontFamily: "FredokaOne",
@@ -198,7 +198,7 @@ class WidgetPeternakan2 extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
-                        "Ternak Kecil",
+                        "Ternak Kecil".toUpperCase(),
                         style: TextStyle(
                             fontSize: 13,
                             fontFamily: "FredokaOne",
@@ -259,7 +259,7 @@ class WidgetPeternakan2 extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
-                        "Ternak Unggas",
+                        "Ternak Unggas".toUpperCase(),
                         style: TextStyle(
                             fontSize: 13,
                             fontFamily: "FredokaOne",
@@ -272,7 +272,7 @@ class WidgetPeternakan2 extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
-                        "Aneka Ternak",
+                        "Aneka Ternak".toUpperCase(),
                         style: TextStyle(
                             fontSize: 13,
                             fontFamily: "FredokaOne",

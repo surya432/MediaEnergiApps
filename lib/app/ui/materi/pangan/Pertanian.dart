@@ -152,7 +152,7 @@ class WidgetPangan1 extends StatelessWidget {
           Text(
             "Menurut UU RI Nomor 18 Tahun 2012, Ketahanan pangan adalah kondisi terpenuhinya pangan bagi negara sampai perseorangan, dengan" +
                 "tersedianya pangan yang cukup, baik jumlah maupun mutunya, aman, beragam, bergizi, merata dan terjangkau serta tidak bertentangan" +
-                "dengan SARA untuk dapat hidup sehat, aktif dan produktif." +
+                "dengan SARA untuk dapat hidup sehat, aktif dan produktif.\n" +
                 "Komponen yang harus dipenuhi untuk mencapai kondisi ketahanan pangan :\n\n" +
                 "a.	Kecukupan ketersediaan pangan\n" +
                 "b.	Stabilitas ketersediaan pangan \n" +
@@ -183,8 +183,8 @@ class WidgetPangan2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String decs =
-        "Pertanian merupakan sektor utama yang menjadi tumpuan ketahanan pangan."
-        "Lahan pertanian berkelanjutan adalah bidang pertanian yang ditetapkan untuk dilindungi dan dikembangkan secara konsisten guna menghasilkan pangan pokok bagi ketahanan pangan nasional."
+        "Pertanian merupakan sektor utama yang menjadi tumpuan ketahanan pangan.\n"+
+        "Lahan pertanian berkelanjutan adalah bidang pertanian yang ditetapkan untuk dilindungi dan dikembangkan secara konsisten guna menghasilkan pangan pokok bagi ketahanan pangan nasional.\n"+
         "Sementara lahan cadangan pertanian pangan berkelanjutan adalah lahan potensial yang dilindungi pemanfaatannya agar kesesuaian dan ketersediaannya tetap terkendali untuk dimanfaatkan pada masa yang akan datang";
     return SingleChildScrollView(
       child: Column(
@@ -225,8 +225,8 @@ class WidgetPangan3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String decs = "Adalah lahan pertanian yang berpetak-petak dan dibatasi oleh pematang, saluran untuk air, yang biasanya ditanami padi sawah tanpa memandang dimana diperoleh lahan tersebut." +
-        "Lahan sawah terdiri dari :\n\n" +
+    String decs = "Adalah lahan pertanian yang berpetak-petak dan dibatasi oleh pematang, saluran untuk air, yang biasanya ditanami padi sawah tanpa memandang dimana diperoleh lahan tersebut.\n" +
+        "Lahan sawah terdiri dari :\n" +
         "a.	Lahan sawah irigasi, yang keperluan airnya di suplai oleh irigasi\n" +
         "b.	Lahan sawah tadah hujan, yang bergantuk pada air hujan\n" +
         "c.	Lahan sawah pasang surut, pengairannya bergantung pada air sungai yang dipengaruhi pasang surutnya air laut\n" +

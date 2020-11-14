@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     controller = AnimationController(
-        duration: const Duration(milliseconds: 5000), vsync: this);
+        duration: const Duration(milliseconds: 3000), vsync: this);
     animation = CurvedAnimation(parent: controller, curve: Curves.easeInCubic);
     animation.addStatusListener((status) {
       if (status == AnimationStatus.completed) {

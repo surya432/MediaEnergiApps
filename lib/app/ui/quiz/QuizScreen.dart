@@ -13,7 +13,7 @@ class QuizScreen extends StatelessWidget {
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
         content: BoardTitleWidget(
-          widgetTitle: "assets/Icon/button-soal-01.png",
+          widgetTitle: "assets/Icon/button-kuis-01.png",
           widgetContent: Container(
             child: Column(
               children: [

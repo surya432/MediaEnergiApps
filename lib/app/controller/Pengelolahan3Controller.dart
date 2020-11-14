@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Materi_Pengelolahan.dart';
+import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Materi_Pengelolahan3.dart';
 
-class PengelolahanController extends GetxController{
+class Pengelolahan3Controller extends GetxController{
   var menuList = List<Map<dynamic, dynamic>>().obs;
   var pageIndex = 0.obs;
   decrement() => pageIndex.value--;
@@ -15,15 +16,15 @@ class PengelolahanController extends GetxController{
 
   void initparameter() {
     menuList.value = [
-      {
-        "route": WidgetPengelolahan1(),
-        "images":"assets/Icon/button-pengelolahan-01.png",
-      },
-      {
-        "route": WidgetPengelolahan2(),
-        "images":"assets/Icon/button-pengelolahan-01.png",
-      },
      
+      {
+        "route": WidgetPengelolahan5(),
+        "images":"assets/Icon/button-pengelolahan-01.png",
+      },
+      {
+        "route": WidgetPengelolahan6(),
+        "images":"assets/Icon/button-pengelolahan-01.png",
+      },
 
 
     ];

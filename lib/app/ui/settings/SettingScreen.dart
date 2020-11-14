@@ -120,7 +120,7 @@ class _SettingScreenState extends State<SettingScreen> {
           children: [
             GestureDetector(
               onTap: () => Get.back(),
-              child: Image.asset("assets/Icon/button-home.png",
+              child: Image.asset("assets/Icon/button-10.png",
                   height: 60, width: 60),
             ),
             GestureDetector(

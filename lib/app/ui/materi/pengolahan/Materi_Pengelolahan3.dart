@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mediainteaktifpangan/app/controller/EnergiController.dart';
+import 'package:mediainteaktifpangan/app/controller/Pengelolahan3Controller.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
 
-class EnergiScreen extends StatefulWidget {
+class Pengelolahan3Screen extends StatefulWidget {
   @override
-  _EnergiScreenState createState() => _EnergiScreenState();
+  _Pengelolahan3ScreenState createState() => _Pengelolahan3ScreenState();
 }
 
-class _EnergiScreenState extends State<EnergiScreen>
+class _Pengelolahan3ScreenState extends State<Pengelolahan3Screen>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
@@ -31,25 +31,25 @@ class _EnergiScreenState extends State<EnergiScreen>
 
   @override
   Widget build(BuildContext context) {
-    print(Get.find<EnergiController>()
-        .menuList[Get.find<EnergiController>().pageIndex.value]['images']
+    print(Get.find<Pengelolahan3Controller>()
+        .menuList[Get.find<Pengelolahan3Controller>().pageIndex.value]['images']
         .toString());
     return Scaffold(
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
-        content: GetX<EnergiController>(
+        content: GetX<Pengelolahan3Controller>(
           builder: (controller) {
             return BoardTitleWidget(
-              widgetTitle: Get.find<EnergiController>()
-                  .menuList[Get.find<EnergiController>().pageIndex.value]
+              widgetTitle: Get.find<Pengelolahan3Controller>()
+                  .menuList[Get.find<Pengelolahan3Controller>().pageIndex.value]
                       ['images']
                   .toString(),
               widgetContent: Center(
-                child: GetX<EnergiController>(
+                child: GetX<Pengelolahan3Controller>(
                   initState: (state) =>
-                      Get.find<EnergiController>().initparameter(),
+                      Get.find<Pengelolahan3Controller>().initparameter(),
                   builder: (controller) {
-                    print(Get.find<EnergiController>()
+                    print(Get.find<Pengelolahan3Controller>()
                         .pageIndex
                         .value
                         .toString());
@@ -77,10 +77,11 @@ class _EnergiScreenState extends State<EnergiScreen>
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Align(
                               alignment: Alignment.topLeft,
-                              child: Get.find<EnergiController>().menuList[
-                                  Get.find<EnergiController>()
-                                      .pageIndex
-                                      .value]['route'],
+                              child:
+                                  Get.find<Pengelolahan3Controller>().menuList[
+                                      Get.find<Pengelolahan3Controller>()
+                                          .pageIndex
+                                          .value]['route'],
                             ),
                           ),
                         ),
@@ -91,27 +92,29 @@ class _EnergiScreenState extends State<EnergiScreen>
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Obx(() => Get.find<EnergiController>()
+                              Obx(() => Get.find<Pengelolahan3Controller>()
                                           .pageIndex
                                           .value >
                                       0
                                   ? GestureDetector(
-                                      onTap: () => Get.find<EnergiController>()
-                                          .decrement(),
+                                      onTap: () =>
+                                          Get.find<Pengelolahan3Controller>()
+                                              .decrement(),
                                       child: Image.asset("assets/Icon/prev.png",
                                           height: 40, width: 40),
                                     )
                                   : Container(height: 40, width: 40)),
-                              Obx(() => Get.find<EnergiController>()
+                              Obx(() => Get.find<Pengelolahan3Controller>()
                                           .pageIndex
                                           .value <
-                                      Get.find<EnergiController>()
+                                      Get.find<Pengelolahan3Controller>()
                                               .menuList
                                               .length -
                                           1
                                   ? GestureDetector(
-                                      onTap: () => Get.find<EnergiController>()
-                                          .increment(),
+                                      onTap: () =>
+                                          Get.find<Pengelolahan3Controller>()
+                                              .increment(),
                                       child: Image.asset("assets/Icon/next.png",
                                           height: context.isTablet ? 60 : 40,
                                           width: context.isTablet ? 60 : 40),
@@ -150,8 +153,8 @@ class _EnergiScreenState extends State<EnergiScreen>
   }
 }
 
-class WidgetEnergi1 extends StatelessWidget {
-  const WidgetEnergi1({
+class WidgetPengelolahan5 extends StatelessWidget {
+  const WidgetPengelolahan5({
     Key key,
   }) : super(key: key);
 
@@ -161,18 +164,20 @@ class WidgetEnergi1 extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "Potensi dan Persebaran Sumber Daya untuk Penyedia Energi Baru dan Terbarukan (EBT)\n",
+            "Pengelolaan Energi Baru dan Terbarukan\n",
+            textAlign: TextAlign.justify,
             style: TextStyle(
               fontSize: 16,
-              // fontWeight: FontWeight.bold,
-              fontFamily: "FredokaOne",
-              wordSpacing: 4,
+              wordSpacing: 2,
               color: Colors.white,
+              fontFamily: "FredokaOne",
             ),
           ),
           Text(
-            "Indonesia merupakan negara dengan potensi energi terbarukan yang cukup besar, hal ini dapat dilihat berdasarkan letak geografis, astronomis dan geologis Indonesia. Menurut UU RI Nomor 30 Tahun 2007, sumber daya energi adalah sumber daya alam yang dapat dimanfaatkan, baik sebagai sumber energi maupun sebagai energi.\n" +
-                "Sumber energi adalah sesuatu yang dapat menghasilkan energi baik secara langsung maupun melalui proses konversi atau transformasi",
+                "Pengembangan sumber energi yang terbarukan sebagai sumber energi alternatif harus dilakukan karena :\n" +
+                "a. Permintaan energi meningkat dengan pesat karena industrialisasi dan pertumbuhan penduduk yang pesat\n" +
+                "b. Sumber energi fosil tidak terbarukan\n" +
+                "c. Sumber konvensional  (bahan bakar fosil) juga menyebabkan polusi",
             textAlign: TextAlign.justify,
             style: TextStyle(
               // fontSize: 13,
@@ -190,8 +195,8 @@ class WidgetEnergi1 extends StatelessWidget {
   }
 }
 
-class WidgetEnergi2 extends StatelessWidget {
-  const WidgetEnergi2({
+class WidgetPengelolahan6 extends StatelessWidget {
+  const WidgetPengelolahan6({
     Key key,
   }) : super(key: key);
 
@@ -201,66 +206,9 @@ class WidgetEnergi2 extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "Energi terbarukan adalah sumber energi yang dihasilkan dari sumber daya energi yang berkelanjutan jika dikelolah dengan baik tidak ada habisnya, dan dapat dicukupi kembali pada tingkat yang sama namun terbatas dalam jumlah energi persatuan.\nContohnya : panas bumi, energi air, bioenergi, energi surya, energi angin, energi laut.\n",
-            textAlign: TextAlign.justify,
-            style: TextStyle(
-              // fontSize: 13,
-              wordSpacing: 2,
-              color: Colors.white,
-              fontFamily: "FredokaOne",
-            ),
-          ),
-        ],
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-      ),
-    );
-  }
-}
-
-class WidgetEnergi3 extends StatelessWidget {
-  const WidgetEnergi3({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Text(
-            "Energi tak terbarukan adalah sumber energi yang akan habis jika dieksploitasi secara terus-menerus. Salah satu energi tak terbarukan adalah energi fosil yang disebut juga dengan energi komersial.\n\nContohnya minyak bumi, gas bumi, batu bara, gambut.\n",
-            textAlign: TextAlign.justify,
-            style: TextStyle(
-              // fontSize: 13,
-              wordSpacing: 2,
-              color: Colors.white,
-              fontFamily: "FredokaOne",
-            ),
-          ),
-        ],
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-      ),
-    );
-  }
-}
-
-class WidgetEnergi31 extends StatelessWidget {
-  const WidgetEnergi31({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Text(
-             "Energi baru adalah sumber energi yang dapat dihasilkan oleh teknologi baru baik yang berasal dari sumber energi terbarukan maupun energi tak terbarukan.\n"+
-            "Contohnya batu bara tercairkan, batu bara tergaskan, gas metana batu bara, hidrogen dan nuklir.\n",
+            "Pemanfaatan sumber energi terbarukan :\n" +
+                "1. Jenis energi aliran dan air terjun, energi panas bumi, energi gerakan dan perbedaan suhu lapisan laut dan energi angin diarahkan untuk ketenagalistrikan\n" +
+                "2. Pemanfaatan sumber energi terbarukan dari jenis energi sinar matahari diarahkan untuk ketenagalistrikan dan energi nonlistrik untuk industri, rumah tangga, dan transportasi",
             textAlign: TextAlign.justify,
             style: TextStyle(
               // fontSize: 13,
