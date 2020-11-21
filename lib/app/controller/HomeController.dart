@@ -25,6 +25,14 @@ class HomeController extends GetxController {
         await audioPlayer.play("UkuleleBensound.mp3", isLocal: true);
   }
 
+  @override
+  void onClose() {
+    audioCache.clear("UkuleleBensound.mp3");
+    audioPlayer?.stop();
+    _musicPlay.value = 0;
+    super.onClose();
+  }
+
   void playMusic() async {
     print(_musicPlay.value);
     if (_musicPlay.value == 0) {

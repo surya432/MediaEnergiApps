@@ -54,7 +54,7 @@ class QuizDoneScreen extends StatelessWidget {
                   ),
                   Positioned(
                     child: GestureDetector(
-                      onTap: () => Get.offAll(Home()),
+                      onTap: () => Get.off(Home()),
                       child: Image.asset(
                         "assets/Icon/button-closed.png",
                         height: 30,

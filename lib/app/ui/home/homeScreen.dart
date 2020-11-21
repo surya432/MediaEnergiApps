@@ -45,6 +45,7 @@ class _HomeState extends State<Home> {
   var imagesBg = new AssetImage('assets/bg_01.jpg');
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => HomeController());
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
