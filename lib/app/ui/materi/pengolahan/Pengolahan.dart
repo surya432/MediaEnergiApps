@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
 
@@ -7,7 +8,8 @@ class MateriPengelolaanScreen extends StatefulWidget {
   MateriPengelolaanScreen({Key key}) : super(key: key);
 
   @override
-  _MateriPengelolaanScreenState createState() => _MateriPengelolaanScreenState();
+  _MateriPengelolaanScreenState createState() =>
+      _MateriPengelolaanScreenState();
 }
 
 var menuList = [
@@ -26,7 +28,6 @@ var menuList = [
     "route": "/Pengelolahan3",
     "name": "Petunjuk Pengunaan"
   },
-  
 ];
 
 class _MateriPengelolaanScreenState extends State<MateriPengelolaanScreen> {
@@ -48,7 +49,6 @@ class _MateriPengelolaanScreenState extends State<MateriPengelolaanScreen> {
           widgetContent: Center(
             child: Column(
               children: [
-  
                 Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,15 +82,12 @@ class _MateriPengelolaanScreenState extends State<MateriPengelolaanScreen> {
                   children: [
                     Expanded(
                       child: GestureDetector(
-                        onTap: () => Get.toNamed(menuList[2]['route']
-                         ),
+                        onTap: () => Get.toNamed(menuList[2]['route']),
                         child: Image.asset(menuList[2]['images'],
                             height: 60, width: 60),
                       ),
                     ),
-                    Expanded(
-                      child: Container()
-                    ),
+                    Expanded(child: Container()),
                   ],
                 ),
                 Spacer(),
@@ -108,9 +105,13 @@ class _MateriPengelolaanScreenState extends State<MateriPengelolaanScreen> {
                   height: 60, width: 60),
             ),
             GestureDetector(
-              onTap: () => {},
-              child: Image.asset("assets/Icon/button-music.png",
-                  height: 60, width: 60),
+              onTap: () => Get.find<HomeController>().playMusic(),
+              child: Obx(
+                () => Image.asset(
+                    Get.find<HomeController>().getImagesPlay.toString(),
+                    height: 60,
+                    width: 60),
+              ),
             ),
           ],
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mediainteaktifpangan/app/ui/home/homeScreen.dart';
 
 class Splash2Screen extends StatefulWidget {
   Splash2Screen({Key key}) : super(key: key);
@@ -24,11 +23,12 @@ class _Splash2ScreenState extends State<Splash2Screen>
         controller.reverse();
       } else if (status == AnimationStatus.dismissed) {
         // controller.forward();
-        Get.off(
-          Home(),
-          transition: Transition.zoom,
-          duration: new Duration(milliseconds: 200),
-        );
+        // Get.off(
+        //   Home(),
+        //   transition: Transition.zoom,
+        //   duration: new Duration(milliseconds: 200),
+        // );
+        Get.toNamed("/HomeScreen");
       }
     });
     controller.forward();

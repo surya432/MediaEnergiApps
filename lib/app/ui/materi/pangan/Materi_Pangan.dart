@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
@@ -85,16 +86,16 @@ class _MateriPanganScreenState extends State<MateriPanganScreen> {
                   children: [
                     Expanded(
                       child: GestureDetector(
-                        onTap: () => Get.toNamed(menuList[2]['route']
-                         ),
+                        onTap: () => Get.toNamed(menuList[2]['route']),
                         child: Image.asset(menuList[2]['images'],
                             height: 60, width: 60),
                       ),
                     ),
                     Expanded(
                       child: GestureDetector(
-                        onTap: () => Get.toNamed(menuList[3]['route'],
-                            ),
+                        onTap: () => Get.toNamed(
+                          menuList[3]['route'],
+                        ),
                         child: Image.asset(menuList[3]['images'],
                             height: 60, width: 60),
                       ),
@@ -116,9 +117,13 @@ class _MateriPanganScreenState extends State<MateriPanganScreen> {
                   height: 60, width: 60),
             ),
             GestureDetector(
-              onTap: () => {},
-              child: Image.asset("assets/Icon/button-music.png",
-                  height: 60, width: 60),
+              onTap: () => Get.find<HomeController>().playMusic(),
+              child: Obx(
+                () => Image.asset(
+                    Get.find<HomeController>().getImagesPlay.toString(),
+                    height: 60,
+                    width: 60),
+              ),
             ),
           ],
         ),

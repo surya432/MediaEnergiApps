@@ -19,7 +19,7 @@ class BoardBackground extends StatelessWidget {
         decoration: boxDecoration,
         padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         height: Get.height - context.mediaQueryPadding.top - 20,
-        width: Get.width * 0.8,
+        width: Get.width * 0.85,
         child: Center(child: dataContent),
       ),
     );

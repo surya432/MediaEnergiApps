@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/controller/PertanianController.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
@@ -119,9 +120,13 @@ class _MateriPertanianState extends State<MateriPertanian> {
                   height: 60, width: 60),
             ),
             GestureDetector(
-              onTap: () => {},
-              child: Image.asset("assets/Icon/button-music.png",
-                  height: 60, width: 60),
+              onTap: () => Get.find<HomeController>().playMusic(),
+              child: Obx(
+                () => Image.asset(
+                    Get.find<HomeController>().getImagesPlay.toString(),
+                    height: 60,
+                    width: 60),
+              ),
             ),
           ],
         ),
@@ -183,9 +188,9 @@ class WidgetPangan2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String decs =
-        "Pertanian merupakan sektor utama yang menjadi tumpuan ketahanan pangan.\n"+
-        "Lahan pertanian berkelanjutan adalah bidang pertanian yang ditetapkan untuk dilindungi dan dikembangkan secara konsisten guna menghasilkan pangan pokok bagi ketahanan pangan nasional.\n"+
-        "Sementara lahan cadangan pertanian pangan berkelanjutan adalah lahan potensial yang dilindungi pemanfaatannya agar kesesuaian dan ketersediaannya tetap terkendali untuk dimanfaatkan pada masa yang akan datang";
+        "Pertanian merupakan sektor utama yang menjadi tumpuan ketahanan pangan.\n" +
+            "Lahan pertanian berkelanjutan adalah bidang pertanian yang ditetapkan untuk dilindungi dan dikembangkan secara konsisten guna menghasilkan pangan pokok bagi ketahanan pangan nasional.\n" +
+            "Sementara lahan cadangan pertanian pangan berkelanjutan adalah lahan potensial yang dilindungi pemanfaatannya agar kesesuaian dan ketersediaannya tetap terkendali untuk dimanfaatkan pada masa yang akan datang";
     return SingleChildScrollView(
       child: Column(
         children: [

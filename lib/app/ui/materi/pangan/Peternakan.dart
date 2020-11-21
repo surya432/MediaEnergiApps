@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/controller/PeternakanController.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
@@ -16,8 +17,7 @@ class _PeternakanScreenState extends State<PeternakanScreen>
   @override
   void initState() {
     _controller = AnimationController(vsync: this);
-    precacheImage(
-        new AssetImage("assets/Icon/btn_pangan-04.png"), Get.context);
+    precacheImage(new AssetImage("assets/Icon/btn_pangan-04.png"), Get.context);
     precacheImage(new AssetImage("assets/bg_01.jpg"), Get.context);
 
     super.initState();
@@ -114,9 +114,13 @@ class _PeternakanScreenState extends State<PeternakanScreen>
                   height: 60, width: 60),
             ),
             GestureDetector(
-              onTap: () => {},
-              child: Image.asset("assets/Icon/button-music.png",
-                  height: 60, width: 60),
+              onTap: () => Get.find<HomeController>().playMusic(),
+              child: Obx(
+                () => Image.asset(
+                    Get.find<HomeController>().getImagesPlay.toString(),
+                    height: 60,
+                    width: 60),
+              ),
             ),
           ],
         ),
@@ -295,14 +299,14 @@ class WidgetPeternakan2 extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 12,
                                   fontFamily: "FredokaOne",
-                                  color: Colors.white)),  Text(
+                                  color: Colors.white)),
+                          Text(
                               "Ayam Pedaging : Jawa Timur, Jawa Barat, Jawa Tengah",
                               style: TextStyle(
                                   fontSize: 12,
                                   fontFamily: "FredokaOne",
                                   color: Colors.white)),
-                          Text(
-                              "Itik : Jawa Timur, Jawa Barat, Jawa Tengah",
+                          Text("Itik : Jawa Timur, Jawa Barat, Jawa Tengah",
                               style: TextStyle(
                                   fontSize: 12,
                                   fontFamily: "FredokaOne",
@@ -315,12 +319,12 @@ class WidgetPeternakan2 extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(
-                            "Kelinci : Jawa Tengah, Jawa Timur, Jawa Barat.",
+                        Text("Kelinci : Jawa Tengah, Jawa Timur, Jawa Barat.",
                             style: TextStyle(
                                 fontSize: 12,
                                 fontFamily: "FredokaOne",
-                                color: Colors.white)),Text(
+                                color: Colors.white)),
+                        Text(
                             "Puyuh : Jawa Tengah, Jawa Timur, Yogyakarta, Sumatera Barat.",
                             style: TextStyle(
                                 fontSize: 12,

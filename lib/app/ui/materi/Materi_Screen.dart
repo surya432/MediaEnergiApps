@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pangan/Materi_Pangan.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Pengolahan.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
-
-class MateriScreen extends StatefulWidget {
-  MateriScreen({Key key}) : super(key: key);
-
-  @override
-  _MateriScreenState createState() => _MateriScreenState();
-}
 
 var menuList = [
   {
@@ -35,19 +29,12 @@ var menuList = [
   },
 ];
 
-class _MateriScreenState extends State<MateriScreen> {
-  @override
-  void initState() {
-    precacheImage(
-        new AssetImage("assets/Icon/button-materi-01.png"), Get.context);
-    precacheImage(new AssetImage("assets/bg_01.jpg"), Get.context);
-
-    super.initState();
-  }
+class MateriScreen extends StatelessWidget {
+  const MateriScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+   return Scaffold(
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
         content: BoardTitleWidget(
@@ -122,13 +109,18 @@ class _MateriScreenState extends State<MateriScreen> {
                   height: 60, width: 60),
             ),
             GestureDetector(
-              onTap: () => {},
-              child: Image.asset("assets/Icon/button-music.png",
-                  height: 60, width: 60),
+              onTap: () => Get.find<HomeController>().playMusic(),
+              child: Obx(
+                () => Image.asset(
+                    Get.find<HomeController>().getImagesPlay.toString(),
+                    height: 60,
+                    width: 60),
+              ),
             ),
           ],
         ),
       ),
     );
+ 
   }
 }

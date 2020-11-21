@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/controller/IndustriController.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
@@ -37,94 +38,101 @@ class _IndustriScreenState extends State<IndustriScreen>
     return Scaffold(
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
-        content: GetX<IndustriController>(builder: (controller) {
-          return BoardTitleWidget(
-            widgetTitle: Get.find<IndustriController>()
-                .menuList[Get.find<IndustriController>().pageIndex.value]
-            ['images']
-                .toString(),
-            widgetContent: Center(
-              child: GetX<IndustriController>(
-                initState: (state) =>
-                    Get.find<IndustriController>().initparameter(),
-                builder: (controller) {
-                  print(
-                      Get.find<IndustriController>().pageIndex.value.toString());
-                  return Stack(
-                    children: [
-                      // Expanded(
-                      //   flex:1,
-                      //   child: Padding(
-                      //     padding: const EdgeInsets.only(
-                      //         left: 16, right: 16, top: 16, bottom: 8),
-                      //     child: Align(
-                      //       alignment: Alignment.topLeft,
-                      //       child:
-                      //           Get.find<PertanianController>().menuList[
-                      //               Get.find<PertanianController>()
-                      //                   .pageIndex
-                      //                   .value]['route'],
-                      //     ),
-                      //   ),
-                      // ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 16, right: 16, top: 16, bottom: 40),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
-                          child: Align(
-                            alignment: Alignment.topLeft,
-                            child: Get.find<IndustriController>().menuList[
-                            Get.find<IndustriController>()
-                                .pageIndex
-                                .value]['route'],
+        content: GetX<IndustriController>(
+          builder: (controller) {
+            return BoardTitleWidget(
+              widgetTitle: Get.find<IndustriController>()
+                  .menuList[Get.find<IndustriController>().pageIndex.value]
+                      ['images']
+                  .toString(),
+              widgetContent: Center(
+                child: GetX<IndustriController>(
+                  initState: (state) =>
+                      Get.find<IndustriController>().initparameter(),
+                  builder: (controller) {
+                    print(Get.find<IndustriController>()
+                        .pageIndex
+                        .value
+                        .toString());
+                    return Stack(
+                      children: [
+                        // Expanded(
+                        //   flex:1,
+                        //   child: Padding(
+                        //     padding: const EdgeInsets.only(
+                        //         left: 16, right: 16, top: 16, bottom: 8),
+                        //     child: Align(
+                        //       alignment: Alignment.topLeft,
+                        //       child:
+                        //           Get.find<PertanianController>().menuList[
+                        //               Get.find<PertanianController>()
+                        //                   .pageIndex
+                        //                   .value]['route'],
+                        //     ),
+                        //   ),
+                        // ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 16, right: 16, top: 16, bottom: 40),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: Get.find<IndustriController>().menuList[
+                                  Get.find<IndustriController>()
+                                      .pageIndex
+                                      .value]['route'],
+                            ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Obx(() =>
-                            Get.find<IndustriController>().pageIndex.value > 0
-                                ? GestureDetector(
-                              onTap: () =>
-                                  Get.find<IndustriController>()
-                                      .decrement(),
-                              child: Image.asset("assets/Icon/prev.png",
-                                  height: 40, width: 40),
-                            )
-                                : Container(height: 40, width: 40)),
-                            Obx(() => Get.find<IndustriController>()
-                                .pageIndex
-                                .value <
-                                Get.find<IndustriController>()
-                                    .menuList
-                                    .length -
-                                    1
-                                ? GestureDetector(
-                              onTap: () => Get.find<IndustriController>()
-                                  .increment(),
-                              child: Image.asset("assets/Icon/next.png",
-                                  height: context.isTablet ? 60 : 40,
-                                  width: context.isTablet ? 60 : 40),
-                            )
-                                : Container(
-                                height: context.isTablet ? 60 : 40,
-                                width: context.isTablet ? 60 : 40)),
-                          ],
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Obx(() => Get.find<IndustriController>()
+                                          .pageIndex
+                                          .value >
+                                      0
+                                  ? GestureDetector(
+                                      onTap: () =>
+                                          Get.find<IndustriController>()
+                                              .decrement(),
+                                      child: Image.asset("assets/Icon/prev.png",
+                                          height: 40, width: 40),
+                                    )
+                                  : Container(height: 40, width: 40)),
+                              Obx(() => Get.find<IndustriController>()
+                                          .pageIndex
+                                          .value <
+                                      Get.find<IndustriController>()
+                                              .menuList
+                                              .length -
+                                          1
+                                  ? GestureDetector(
+                                      onTap: () =>
+                                          Get.find<IndustriController>()
+                                              .increment(),
+                                      child: Image.asset("assets/Icon/next.png",
+                                          height: context.isTablet ? 60 : 40,
+                                          width: context.isTablet ? 60 : 40),
+                                    )
+                                  : Container(
+                                      height: context.isTablet ? 60 : 40,
+                                      width: context.isTablet ? 60 : 40)),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  );
-                },
+                      ],
+                    );
+                  },
+                ),
               ),
-            ),
-          );
-        },),
+            );
+          },
+        ),
         custombar: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -134,9 +142,13 @@ class _IndustriScreenState extends State<IndustriScreen>
                   height: 60, width: 60),
             ),
             GestureDetector(
-              onTap: () => {},
-              child: Image.asset("assets/Icon/button-music.png",
-                  height: 60, width: 60),
+              onTap: () => Get.find<HomeController>().playMusic(),
+              child: Obx(
+                () => Image.asset(
+                    Get.find<HomeController>().getImagesPlay.toString(),
+                    height: 60,
+                    width: 60),
+              ),
             ),
           ],
         ),

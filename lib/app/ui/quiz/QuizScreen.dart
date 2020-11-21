@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/controller/QuizController.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
@@ -19,11 +20,13 @@ class QuizScreen extends StatelessWidget {
               children: [
                 SizedBox(height: 15),
                 GetX<QuizController>(
+                  initState: (state) =>
+                      Get.find<QuizController>().initparameter(),
                   builder: (_) {
                     if (_.numberQuiz.value >= _.data.length) {
                       // String total = _.getTotalBenar.toString();
 
-                       return Container();
+                      return Container();
                     } else {
                       int quizindex = _.numberQuiz.value;
                       String question = _.data[quizindex]["pertanyaan"];
@@ -36,7 +39,8 @@ class QuizScreen extends StatelessWidget {
                             Text(
                               '$question',
                               style: TextStyle(
-                                // fontSize: 16,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
                                 color: Colors.white,
                               ),
                             ),
@@ -51,11 +55,15 @@ class QuizScreen extends StatelessWidget {
                                 String jawabannya =
                                     _.data[quizindex]["jawabanbenar"];
                                 var icon = jawabannya == answer
-                                    ? Image.asset("assets/Icon/btn-check-05.png",height: 16,width: 16,)
-                                    : Icon(
-                                        Icons.close,
-                                        size: 16,
-                                        color: Colors.red,
+                                    ? Image.asset(
+                                        "assets/Icon/btn-check-05.png",
+                                        height: 16,
+                                        width: 16,
+                                      )
+                                    : Image.asset(
+                                        "assets/Icon/btn-05.png",
+                                        height: 16,
+                                        width: 16,
                                       );
                                 return Padding(
                                   padding: const EdgeInsets.only(left: 8),
@@ -71,19 +79,22 @@ class QuizScreen extends StatelessWidget {
                                         Text(
                                           answer,
                                           style: TextStyle(
-                                            // fontSize: 13,
-                                            wordSpacing: 4,
+                                            fontSize: 16,
                                             color: Colors.white,
                                           ),
                                         ),
-                                        SizedBox(width: 8,),
-                                        GetX<QuizController>(builder: (controller) {
-                                          if(_.onclickj.value){
-                                            return icon;
-                                          }else{
-                                            return Container();
-                                          }
-                                        },) ,
+                                        SizedBox(
+                                          width: 8,
+                                        ),
+                                        GetX<QuizController>(
+                                          builder: (controller) {
+                                            if (_.onclickj.value) {
+                                              return icon;
+                                            } else {
+                                              return Container();
+                                            }
+                                          },
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -109,9 +120,13 @@ class QuizScreen extends StatelessWidget {
                   height: 60, width: 60),
             ),
             GestureDetector(
-              onTap: () => {},
-              child: Image.asset("assets/Icon/button-music.png",
-                  height: 60, width: 60),
+              onTap: () => Get.find<HomeController>().playMusic(),
+              child: Obx(
+                () => Image.asset(
+                    Get.find<HomeController>().getImagesPlay.toString(),
+                    height: 60,
+                    width: 60),
+              ),
             ),
           ],
         ),

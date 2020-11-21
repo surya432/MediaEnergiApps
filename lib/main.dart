@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/binding/EnergiBinding.dart';
+import 'package:mediainteaktifpangan/app/binding/HomeBinding.dart';
 import 'package:mediainteaktifpangan/app/binding/IndustriBinding.dart';
 import 'package:mediainteaktifpangan/app/binding/Pengelolahan2Binding.dart';
 import 'package:mediainteaktifpangan/app/binding/Pengelolahan3Binding.dart';
@@ -12,6 +13,7 @@ import 'package:mediainteaktifpangan/app/binding/PerikananBinding.dart';
 import 'package:mediainteaktifpangan/app/binding/PerkebunanBinding.dart';
 import 'package:mediainteaktifpangan/app/binding/PertanianBinding.dart';
 import 'package:mediainteaktifpangan/app/binding/QuizBinding.dart';
+import 'package:mediainteaktifpangan/app/ui/home/homeScreen.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/Energi/Materi_Energi.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/industri/Materi_Industri.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pangan/Peternakan.dart';
@@ -21,7 +23,7 @@ import 'package:mediainteaktifpangan/app/ui/materi/pangan/Pertanian.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Materi_Pengelolahan.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Materi_Pengelolahan3.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Materi_Pengelolahan2.dart';
-import 'package:mediainteaktifpangan/app/ui/quiz/QuizScreen.dart';
+import 'package:mediainteaktifpangan/app/ui/quiz/Quiz2Screen.dart';
 
 import 'app/ui/splashscreen/splashScreen.dart';
 
@@ -48,7 +50,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.zoom,
       // transitionDuration: new Duration(milliseconds: 1000),
-      title: 'Flutter Demo',
+      title: 'Media Interaktif Energi Terbarukan',
       theme: buildThemeData(context),
       // theme: ThemeData.dark(),
       initialRoute: '/spalsh',
@@ -59,8 +61,14 @@ class MyApp extends StatelessWidget {
         // GetPage with custom transitions and bindings
         GetPage(
           name: '/QuizScreen',
-          page: () => QuizScreen(),
+          page: () => Quiz2Screen(),
           binding: QuizBinding(),
+          transition: Transition.zoom,
+        ),
+        GetPage(
+          name: '/HomeScreen',
+          page: () => Home(),
+          binding: HomeBinding(),
           transition: Transition.zoom,
         ),
         GetPage(
@@ -111,7 +119,7 @@ class MyApp extends StatelessWidget {
           binding: Pengelolahan2Binding(),
           transition: Transition.zoom,
         ),
-         GetPage(
+        GetPage(
           name: '/Pengelolahan3',
           page: () => Pengelolahan3Screen(),
           binding: Pengelolahan3Binding(),
