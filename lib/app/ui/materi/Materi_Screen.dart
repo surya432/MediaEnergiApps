@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pangan/Materi_Pangan.dart';
 import 'package:mediainteaktifpangan/app/ui/materi/pengolahan/Pengolahan.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
+import 'package:mediainteaktifpangan/app/ui/widgets/WidgetBackMusic.dart';
 
 var menuList = [
   {
@@ -34,7 +34,7 @@ class MateriScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
+    return Scaffold(
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
         content: BoardTitleWidget(
@@ -54,7 +54,8 @@ class MateriScreen extends StatelessWidget {
                             duration: Duration(milliseconds: 700)),
                         child: Container(
                             child: Image.asset(menuList[0]['images'],
-                                height: 60, width: 60)),
+                                height: context.height * 0.15,
+                                width: context.height * 0.15)),
                       ),
                     ),
                     Expanded(
@@ -64,7 +65,8 @@ class MateriScreen extends StatelessWidget {
                           menuList[1]['route'].toString(),
                         ),
                         child: Image.asset(menuList[1]['images'],
-                            height: 60, width: 60),
+                            height: context.height * 0.15,
+                            width: context.height * 0.15),
                       ),
                     ),
                   ],
@@ -81,7 +83,8 @@ class MateriScreen extends StatelessWidget {
                           menuList[2]['route'],
                         ),
                         child: Image.asset(menuList[2]['images'],
-                            height: 60, width: 60),
+                            height: context.height * 0.15,
+                            width: context.height * 0.15),
                       ),
                     ),
                     Expanded(
@@ -90,7 +93,8 @@ class MateriScreen extends StatelessWidget {
                             transition: Transition.cupertinoDialog,
                             duration: Duration(milliseconds: 700)),
                         child: Image.asset(menuList[3]['images'],
-                            height: 60, width: 60),
+                            height: context.height * 0.15,
+                            width: context.height * 0.15),
                       ),
                     ),
                   ],
@@ -100,27 +104,8 @@ class MateriScreen extends StatelessWidget {
             ),
           ),
         ),
-        custombar: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () => Get.back(),
-              child: Image.asset("assets/Icon/button-home.png",
-                  height: 60, width: 60),
-            ),
-            GestureDetector(
-              onTap: () => Get.find<HomeController>().playMusic(),
-              child: Obx(
-                () => Image.asset(
-                    Get.find<HomeController>().getImagesPlay.toString(),
-                    height: 60,
-                    width: 60),
-              ),
-            ),
-          ],
-        ),
+        custombar: WidgetAppBarBackMusic(),
       ),
     );
- 
   }
 }

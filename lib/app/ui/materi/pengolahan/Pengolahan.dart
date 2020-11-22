@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
+import 'package:mediainteaktifpangan/app/ui/widgets/WidgetBackMusic.dart';
 
 class MateriPengelolaanScreen extends StatefulWidget {
   MateriPengelolaanScreen({Key key}) : super(key: key);
@@ -59,7 +59,8 @@ class _MateriPengelolaanScreenState extends State<MateriPengelolaanScreen> {
                         onTap: () => Get.toNamed(menuList[0]['route']),
                         child: Container(
                             child: Image.asset(menuList[0]['images'],
-                                height: 60, width: 60)),
+                                height: context.height * 0.15,
+                                width: context.height * 0.15)),
                       ),
                     ),
                     Expanded(
@@ -69,7 +70,8 @@ class _MateriPengelolaanScreenState extends State<MateriPengelolaanScreen> {
                           menuList[1]['route'],
                         ),
                         child: Image.asset(menuList[1]['images'],
-                            height: 60, width: 60),
+                            height: context.height * 0.15,
+                            width: context.height * 0.15),
                       ),
                     ),
                   ],
@@ -84,7 +86,8 @@ class _MateriPengelolaanScreenState extends State<MateriPengelolaanScreen> {
                       child: GestureDetector(
                         onTap: () => Get.toNamed(menuList[2]['route']),
                         child: Image.asset(menuList[2]['images'],
-                            height: 60, width: 60),
+                            height: context.height * 0.15,
+                            width: context.height * 0.15),
                       ),
                     ),
                     Expanded(child: Container()),
@@ -96,25 +99,7 @@ class _MateriPengelolaanScreenState extends State<MateriPengelolaanScreen> {
           ),
           widgetTitle: "assets/Icon/button-pengelolahan-01.png",
         ),
-        custombar: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () => Get.back(),
-              child: Image.asset("assets/Icon/button-10.png",
-                  height: 60, width: 60),
-            ),
-            GestureDetector(
-              onTap: () => Get.find<HomeController>().playMusic(),
-              child: Obx(
-                () => Image.asset(
-                    Get.find<HomeController>().getImagesPlay.toString(),
-                    height: 60,
-                    width: 60),
-              ),
-            ),
-          ],
-        ),
+        custombar: WidgetAppBarBackMusic(),
       ),
     );
   }

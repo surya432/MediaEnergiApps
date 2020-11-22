@@ -15,7 +15,6 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     audioPlayer = AudioPlayer();
-    audioPlayer.setReleaseMode(ReleaseMode.STOP);
     audioCache = AudioCache();
     super.onInit();
   }

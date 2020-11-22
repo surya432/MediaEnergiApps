@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/ui/settings/menus/Pengembang/PengembangScreen.dart';
 import 'package:mediainteaktifpangan/app/ui/settings/menus/kopetensiDasar/KopetensiDasarScreen.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
+import 'package:mediainteaktifpangan/app/ui/widgets/WidgetBackMusic.dart';
 
 import 'menus/PetunjukPenggunaan/PetunjukPenggunaanScreen.dart';
 import 'menus/tujuan/TujuanScreen.dart';
@@ -69,7 +69,8 @@ class _SettingScreenState extends State<SettingScreen> {
                             duration: Duration(milliseconds: 700)),
                         child: Container(
                             child: Image.asset(menuList[0]['images'],
-                                height: 60, width: 60)),
+                                height: context.height * 0.15,
+                                width: context.height * 0.15)),
                       ),
                     ),
                     Expanded(
@@ -79,7 +80,8 @@ class _SettingScreenState extends State<SettingScreen> {
                             transition: Transition.zoom,
                             duration: Duration(milliseconds: 700)),
                         child: Image.asset(menuList[1]['images'],
-                            height: 60, width: 60),
+                            height: context.height * 0.15,
+                            width: context.height * 0.15),
                       ),
                     ),
                   ],
@@ -96,7 +98,8 @@ class _SettingScreenState extends State<SettingScreen> {
                             transition: Transition.cupertinoDialog,
                             duration: Duration(milliseconds: 700)),
                         child: Image.asset(menuList[2]['images'],
-                            height: 60, width: 60),
+                            height: context.height * 0.15,
+                            width: context.height * 0.15),
                       ),
                     ),
                     Expanded(
@@ -105,7 +108,8 @@ class _SettingScreenState extends State<SettingScreen> {
                             transition: Transition.cupertinoDialog,
                             duration: Duration(milliseconds: 700)),
                         child: Image.asset(menuList[3]['images'],
-                            height: 60, width: 60),
+                            height: context.height * 0.15,
+                            width: context.height * 0.15),
                       ),
                     ),
                   ],
@@ -116,25 +120,7 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
           widgetTitle: "assets/Icon/button-pengaturan-01.png",
         ),
-        custombar: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () => Get.back(),
-              child: Image.asset("assets/Icon/button-10.png",
-                  height: 60, width: 60),
-            ),
-            GestureDetector(
-              onTap: () => Get.find<HomeController>().playMusic(),
-              child: Obx(
-                () => Image.asset(
-                    Get.find<HomeController>().getImagesPlay.toString(),
-                    height: 60,
-                    width: 60),
-              ),
-            ),
-          ],
-        ),
+        custombar: WidgetAppBarBackMusic(),
       ),
     );
   }

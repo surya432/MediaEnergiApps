@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
+import 'package:mediainteaktifpangan/app/ui/widgets/WidgetBackMusic.dart';
 
 class PengembangScreen extends StatefulWidget {
   PengembangScreen({Key key}) : super(key: key);
@@ -211,25 +211,7 @@ class _PengembangScreenState extends State<PengembangScreen> {
             ),
           ),
         ),
-        custombar: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () => Get.back(),
-              child: Image.asset("assets/Icon/button-10.png",
-                  height: 60, width: 60),
-            ),
-            GestureDetector(
-              onTap: () => Get.find<HomeController>().playMusic(),
-              child: Obx(
-                () => Image.asset(
-                    Get.find<HomeController>().getImagesPlay.toString(),
-                    height: 60,
-                    width: 60),
-              ),
-            ),
-          ],
-        ),
+        custombar: WidgetAppBarBackMusic(),
       ),
     );
   }

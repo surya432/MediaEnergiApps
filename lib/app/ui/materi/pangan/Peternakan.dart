@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/controller/PeternakanController.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
+import 'package:mediainteaktifpangan/app/ui/widgets/WidgetBackMusic.dart';
 
 class PeternakanScreen extends StatefulWidget {
   @override
@@ -35,7 +35,7 @@ class _PeternakanScreenState extends State<PeternakanScreen>
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
         content: BoardTitleWidget(
-          widgetTitle: "assets/Icon/menu-button-pertenakan.png",
+          widgetTitle: "assets/Icon/btn_pangan-04.png",
           widgetContent: Center(
             child: GetX<PeternakanController>(
               initState: (state) =>
@@ -105,25 +105,7 @@ class _PeternakanScreenState extends State<PeternakanScreen>
             ),
           ),
         ),
-        custombar: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () => Get.back(),
-              child: Image.asset("assets/Icon/button-10.png",
-                  height: 60, width: 60),
-            ),
-            GestureDetector(
-              onTap: () => Get.find<HomeController>().playMusic(),
-              child: Obx(
-                () => Image.asset(
-                    Get.find<HomeController>().getImagesPlay.toString(),
-                    height: 60,
-                    width: 60),
-              ),
-            ),
-          ],
-        ),
+        custombar: WidgetAppBarBackMusic(),
       ),
     );
   }

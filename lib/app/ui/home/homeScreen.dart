@@ -59,14 +59,15 @@ class _HomeState extends State<Home> {
                 child: Obx(
                   () => Image.asset(
                       Get.find<HomeController>().getImagesPlay.toString(),
-                      height: 60,
-                      width: 60),
+                      height: context.height * 0.12,
+                      width: context.height * 0.12),
                 ),
               ),
               GestureDetector(
                 onTap: () => _onWillPop(),
                 child: Image.asset("assets/Icon/button-closed.png",
-                    height: 60, width: 60),
+                    height: context.height * 0.12,
+                    width: context.height * 0.12),
               ),
             ],
           ),
@@ -89,7 +90,8 @@ class _HomeState extends State<Home> {
                       children: [
                         GestureDetector(
                           child: Image.asset('assets/Icon/button-home.png',
-                              height: 60, width: 60),
+                              height: context.height * 0.15,
+                              width: context.height * 0.15),
                           onTap: () => Get.to(SettingScreen(),
                               transition: Transition.zoom,
                               duration: Duration(milliseconds: 500)),
@@ -99,7 +101,8 @@ class _HomeState extends State<Home> {
                         ),
                         GestureDetector(
                           child: Image.asset('assets/Icon/button-01.png',
-                              height: 80, width: 80),
+                              height: context.height * 0.2,
+                              width: context.height * 0.2),
                           onTap: () => Get.to(MateriScreen(),
                               transition: Transition.zoom,
                               duration: Duration(milliseconds: 500)),
@@ -109,7 +112,8 @@ class _HomeState extends State<Home> {
                         ),
                         GestureDetector(
                           child: Image.asset('assets/Icon/button-13.png',
-                              height: 60, width: 60),
+                              height: context.height * 0.15,
+                              width: context.height * 0.15),
                           onTap: () => Get.toNamed("/QuizScreen"),
                         ),
                       ],

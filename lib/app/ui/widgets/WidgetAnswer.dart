@@ -47,7 +47,7 @@ class WidgetAnswer extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 8,
+                  width: 4,
                 ),
                 GetX<QuizController>(
                   builder: (controller) {

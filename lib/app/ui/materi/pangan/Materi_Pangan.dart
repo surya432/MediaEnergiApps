@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BoardTitleWidget.dart';
+import 'package:mediainteaktifpangan/app/ui/widgets/WidgetBackMusic.dart';
 
 class MateriPanganScreen extends StatefulWidget {
   MateriPanganScreen({Key key}) : super(key: key);
@@ -63,7 +63,8 @@ class _MateriPanganScreenState extends State<MateriPanganScreen> {
                         onTap: () => Get.toNamed(menuList[0]['route']),
                         child: Container(
                             child: Image.asset(menuList[0]['images'],
-                                height: 60, width: 60)),
+                                height: context.height * 0.15,
+                                width: context.height * 0.15)),
                       ),
                     ),
                     Expanded(
@@ -73,7 +74,8 @@ class _MateriPanganScreenState extends State<MateriPanganScreen> {
                           menuList[1]['route'],
                         ),
                         child: Image.asset(menuList[1]['images'],
-                            height: 60, width: 60),
+                            height: context.height * 0.15,
+                            width: context.height * 0.15),
                       ),
                     ),
                   ],
@@ -88,7 +90,8 @@ class _MateriPanganScreenState extends State<MateriPanganScreen> {
                       child: GestureDetector(
                         onTap: () => Get.toNamed(menuList[2]['route']),
                         child: Image.asset(menuList[2]['images'],
-                            height: 60, width: 60),
+                            height: context.height * 0.15,
+                            width: context.height * 0.15),
                       ),
                     ),
                     Expanded(
@@ -97,7 +100,8 @@ class _MateriPanganScreenState extends State<MateriPanganScreen> {
                           menuList[3]['route'],
                         ),
                         child: Image.asset(menuList[3]['images'],
-                            height: 60, width: 60),
+                            height: context.height * 0.15,
+                            width: context.height * 0.15),
                       ),
                     ),
                   ],
@@ -108,25 +112,7 @@ class _MateriPanganScreenState extends State<MateriPanganScreen> {
           ),
           widgetTitle: "assets/Icon/button-pangan-01.png",
         ),
-        custombar: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () => Get.back(),
-              child: Image.asset("assets/Icon/button-10.png",
-                  height: 60, width: 60),
-            ),
-            GestureDetector(
-              onTap: () => Get.find<HomeController>().playMusic(),
-              child: Obx(
-                () => Image.asset(
-                    Get.find<HomeController>().getImagesPlay.toString(),
-                    height: 60,
-                    width: 60),
-              ),
-            ),
-          ],
-        ),
+        custombar: WidgetAppBarBackMusic(),
       ),
     );
   }

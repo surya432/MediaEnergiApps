@@ -12,7 +12,6 @@ class QuizDoneScreen extends StatelessWidget {
         image: assetImage,
         fit: BoxFit.fill,
       ),
-     
     );
 
     return Scaffold(
@@ -34,7 +33,7 @@ class QuizDoneScreen extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.only(top: 20),
               height: 254,
-              width: context.width/2.5,
+              width: context.width / 2.5,
               decoration: boxDecoration,
               child: Stack(
                 children: [
