@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:audioplayers/audio_cache.dart';
 
@@ -43,5 +44,12 @@ class HomeController extends GetxController {
       audioPlayer?.stop();
       _musicPlay.value = 0;
     }
+  }
+
+  closedApp() async {
+    audioCache.clear("UkuleleBensound.mp3");
+    await audioPlayer?.stop();
+    _musicPlay.value = 0;
+    SystemNavigator.pop();
   }
 }

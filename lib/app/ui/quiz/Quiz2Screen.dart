@@ -116,95 +116,98 @@ class WidgetQuiz1 extends StatelessWidget {
       ]
     };
     String numberQuiz = (controller.numberQuiz.toInt() + 1).toString();
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "$numberQuiz.",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 16),
-                  child: Text(
-                    quiz['pertanyaan'],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.justify,
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "$numberQuiz.",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
-              )
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.only(top: 8),
-              itemCount: quiz['jawaban'].length,
-              itemBuilder: (context, index) {
-                String answer = quiz['jawaban'][index];
-                String jawabannya = jawabanBenar;
-                var icon = jawabannya == answer
-                    ? Image.asset(
-                        "assets/Icon/btn-check-05.png",
-                        height: 16,
-                        width: 16,
-                      )
-                    : Image.asset(
-                        "assets/Icon/btn-05.png",
-                        height: 16,
-                        width: 16,
-                      );
-                return Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: GestureDetector(
-                    onTap: () => controller.klikjawab(answer, jawabanBenar),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          answer,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        GetX<QuizController>(
-                          builder: (controller) {
-                            if (controller.onclickj.value) {
-                              return icon;
-                            } else {
-                              return Container();
-                            }
-                          },
-                        ),
-                      ],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 16),
+                    child: Text(
+                      quiz['pertanyaan'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
-                );
-              },
+                )
+              ],
             ),
-          ),
-        ],
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.only(top: 8),
+                itemCount: quiz['jawaban'].length,
+                itemBuilder: (context, index) {
+                  String answer = quiz['jawaban'][index];
+                  String jawabannya = jawabanBenar;
+                  var icon = jawabannya == answer
+                      ? Image.asset(
+                          "assets/Icon/btn-check-05.png",
+                          height: 16,
+                          width: 16,
+                        )
+                      : Image.asset(
+                          "assets/Icon/btn-05.png",
+                          height: 16,
+                          width: 16,
+                        );
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: GestureDetector(
+                      onTap: () => controller.klikjawab(answer, jawabanBenar),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            answer,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          GetX<QuizController>(
+                            builder: (controller) {
+                              if (controller.onclickj.value) {
+                                return icon;
+                              } else {
+                                return Container();
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -230,87 +233,89 @@ class WidgetQuiz2 extends StatelessWidget {
       ]
     };
     String numberQuiz = (controller.numberQuiz.toInt() + 1).toString();
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "$numberQuiz.",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 16),
-                  child: Text(
-                    quiz['pertanyaan'],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.justify,
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "$numberQuiz.",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0, top: 8),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][0],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 16),
+                    child: Text(
+                      quiz['pertanyaan'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][1],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][2],
-                    ),
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][3],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][4],
-                    ),
-                  ],
+                  ),
                 )
               ],
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, top: 8),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][0],
+                      ),
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][1],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][2],
+                      ),
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][3],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][4],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -336,95 +341,98 @@ class WidgetQuiz3 extends StatelessWidget {
       ]
     };
     String numberQuiz = (controller.numberQuiz.toInt() + 1).toString();
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "$numberQuiz.",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 16),
-                  child: Text(
-                    quiz['pertanyaan'],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.justify,
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "$numberQuiz.",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
-              )
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.only(top: 8),
-              itemCount: quiz['jawaban'].length,
-              itemBuilder: (context, index) {
-                String answer = quiz['jawaban'][index];
-                String jawabannya = jawabanBenar;
-                var icon = jawabannya == answer
-                    ? Image.asset(
-                        "assets/Icon/btn-check-05.png",
-                        height: 16,
-                        width: 16,
-                      )
-                    : Image.asset(
-                        "assets/Icon/btn-05.png",
-                        height: 16,
-                        width: 16,
-                      );
-                return Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: GestureDetector(
-                    onTap: () => controller.klikjawab(answer, jawabanBenar),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          answer,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        GetX<QuizController>(
-                          builder: (controller) {
-                            if (controller.onclickj.value) {
-                              return icon;
-                            } else {
-                              return Container();
-                            }
-                          },
-                        ),
-                      ],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 16),
+                    child: Text(
+                      quiz['pertanyaan'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
-                );
-              },
+                )
+              ],
             ),
-          ),
-        ],
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.only(top: 8),
+                itemCount: quiz['jawaban'].length,
+                itemBuilder: (context, index) {
+                  String answer = quiz['jawaban'][index];
+                  String jawabannya = jawabanBenar;
+                  var icon = jawabannya == answer
+                      ? Image.asset(
+                          "assets/Icon/btn-check-05.png",
+                          height: 16,
+                          width: 16,
+                        )
+                      : Image.asset(
+                          "assets/Icon/btn-05.png",
+                          height: 16,
+                          width: 16,
+                        );
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: GestureDetector(
+                      onTap: () => controller.klikjawab(answer, jawabanBenar),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            answer,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          GetX<QuizController>(
+                            builder: (controller) {
+                              if (controller.onclickj.value) {
+                                return icon;
+                              } else {
+                                return Container();
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -455,87 +463,89 @@ class WidgetQuiz4 extends StatelessWidget {
       ]
     };
     String numberQuiz = (controller.numberQuiz.toInt() + 1).toString();
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "$numberQuiz.",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 16),
-                  child: Text(
-                    quiz['pertanyaan'],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.justify,
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "$numberQuiz.",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0, top: 8),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][0],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 16),
+                    child: Text(
+                      quiz['pertanyaan'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][1],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][2],
-                    ),
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][3],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][4],
-                    ),
-                  ],
+                  ),
                 )
               ],
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, top: 8),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][0],
+                      ),
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][1],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][2],
+                      ),
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][3],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][4],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -561,95 +571,98 @@ class WidgetQuiz5 extends StatelessWidget {
       ]
     };
     String numberQuiz = (controller.numberQuiz.toInt() + 1).toString();
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "$numberQuiz.",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 16),
-                  child: Text(
-                    quiz['pertanyaan'],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.justify,
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "$numberQuiz.",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
-              )
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.only(top: 8),
-              itemCount: quiz['jawaban'].length,
-              itemBuilder: (context, index) {
-                String answer = quiz['jawaban'][index];
-                String jawabannya = jawabanBenar;
-                var icon = jawabannya == answer
-                    ? Image.asset(
-                        "assets/Icon/btn-check-05.png",
-                        height: 16,
-                        width: 16,
-                      )
-                    : Image.asset(
-                        "assets/Icon/btn-05.png",
-                        height: 16,
-                        width: 16,
-                      );
-                return Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: GestureDetector(
-                    onTap: () => controller.klikjawab(answer, jawabanBenar),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          answer,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        GetX<QuizController>(
-                          builder: (controller) {
-                            if (controller.onclickj.value) {
-                              return icon;
-                            } else {
-                              return Container();
-                            }
-                          },
-                        ),
-                      ],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 16),
+                    child: Text(
+                      quiz['pertanyaan'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
-                );
-              },
+                )
+              ],
             ),
-          ),
-        ],
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.only(top: 8),
+                itemCount: quiz['jawaban'].length,
+                itemBuilder: (context, index) {
+                  String answer = quiz['jawaban'][index];
+                  String jawabannya = jawabanBenar;
+                  var icon = jawabannya == answer
+                      ? Image.asset(
+                          "assets/Icon/btn-check-05.png",
+                          height: 16,
+                          width: 16,
+                        )
+                      : Image.asset(
+                          "assets/Icon/btn-05.png",
+                          height: 16,
+                          width: 16,
+                        );
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: GestureDetector(
+                      onTap: () => controller.klikjawab(answer, jawabanBenar),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            answer,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          GetX<QuizController>(
+                            builder: (controller) {
+                              if (controller.onclickj.value) {
+                                return icon;
+                              } else {
+                                return Container();
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -675,95 +688,98 @@ class WidgetQuiz6 extends StatelessWidget {
       ]
     };
     String numberQuiz = (controller.numberQuiz.toInt() + 1).toString();
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "$numberQuiz.",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 16),
-                  child: Text(
-                    quiz['pertanyaan'],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.justify,
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "$numberQuiz.",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
-              )
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.only(top: 8),
-              itemCount: quiz['jawaban'].length,
-              itemBuilder: (context, index) {
-                String answer = quiz['jawaban'][index];
-                String jawabannya = jawabanBenar;
-                var icon = jawabannya == answer
-                    ? Image.asset(
-                        "assets/Icon/btn-check-05.png",
-                        height: 16,
-                        width: 16,
-                      )
-                    : Image.asset(
-                        "assets/Icon/btn-05.png",
-                        height: 16,
-                        width: 16,
-                      );
-                return Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: GestureDetector(
-                    onTap: () => controller.klikjawab(answer, jawabanBenar),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          answer,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        GetX<QuizController>(
-                          builder: (controller) {
-                            if (controller.onclickj.value) {
-                              return icon;
-                            } else {
-                              return Container();
-                            }
-                          },
-                        ),
-                      ],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 16),
+                    child: Text(
+                      quiz['pertanyaan'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
-                );
-              },
+                )
+              ],
             ),
-          ),
-        ],
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.only(top: 8),
+                itemCount: quiz['jawaban'].length,
+                itemBuilder: (context, index) {
+                  String answer = quiz['jawaban'][index];
+                  String jawabannya = jawabanBenar;
+                  var icon = jawabannya == answer
+                      ? Image.asset(
+                          "assets/Icon/btn-check-05.png",
+                          height: 16,
+                          width: 16,
+                        )
+                      : Image.asset(
+                          "assets/Icon/btn-05.png",
+                          height: 16,
+                          width: 16,
+                        );
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: GestureDetector(
+                      onTap: () => controller.klikjawab(answer, jawabanBenar),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            answer,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          GetX<QuizController>(
+                            builder: (controller) {
+                              if (controller.onclickj.value) {
+                                return icon;
+                              } else {
+                                return Container();
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -794,87 +810,89 @@ class WidgetQuiz7 extends StatelessWidget {
       ]
     };
     String numberQuiz = (controller.numberQuiz.toInt() + 1).toString();
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "$numberQuiz.",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 16),
-                  child: Text(
-                    quiz['pertanyaan'],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.justify,
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "$numberQuiz.",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0, top: 8),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][0],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 16),
+                    child: Text(
+                      quiz['pertanyaan'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][1],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][2],
-                    ),
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][3],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][4],
-                    ),
-                  ],
+                  ),
                 )
               ],
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, top: 8),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][0],
+                      ),
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][1],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][2],
+                      ),
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][3],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][4],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -905,87 +923,89 @@ class WidgetQuiz8 extends StatelessWidget {
       ]
     };
     String numberQuiz = (controller.numberQuiz.toInt() + 1).toString();
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "$numberQuiz.",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 16),
-                  child: Text(
-                    quiz['pertanyaan'],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.justify,
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "$numberQuiz.",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0, top: 8),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][0],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 16),
+                    child: Text(
+                      quiz['pertanyaan'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][1],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][2],
-                    ),
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][3],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Row(
-                  children: [
-                    WidgetAnswer(
-                      quiz: quiz,
-                      jawabanBenar: jawabanBenar,
-                      answer: quiz['jawaban'][4],
-                    ),
-                  ],
+                  ),
                 )
               ],
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, top: 8),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][0],
+                      ),
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][1],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][2],
+                      ),
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][3],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      WidgetAnswer(
+                        quiz: quiz,
+                        jawabanBenar: jawabanBenar,
+                        answer: quiz['jawaban'][4],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -1011,95 +1031,98 @@ class WidgetQuiz9 extends StatelessWidget {
       ]
     };
     String numberQuiz = (controller.numberQuiz.toInt() + 1).toString();
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "$numberQuiz.",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 16),
-                  child: Text(
-                    quiz['pertanyaan'],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.justify,
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "$numberQuiz.",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
-              )
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.only(top: 8),
-              itemCount: quiz['jawaban'].length,
-              itemBuilder: (context, index) {
-                String answer = quiz['jawaban'][index];
-                String jawabannya = jawabanBenar;
-                var icon = jawabannya == answer
-                    ? Image.asset(
-                        "assets/Icon/btn-check-05.png",
-                        height: 16,
-                        width: 16,
-                      )
-                    : Image.asset(
-                        "assets/Icon/btn-05.png",
-                        height: 16,
-                        width: 16,
-                      );
-                return Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: GestureDetector(
-                    onTap: () => controller.klikjawab(answer, jawabanBenar),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          answer,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        GetX<QuizController>(
-                          builder: (controller) {
-                            if (controller.onclickj.value) {
-                              return icon;
-                            } else {
-                              return Container();
-                            }
-                          },
-                        ),
-                      ],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 16),
+                    child: Text(
+                      quiz['pertanyaan'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
-                );
-              },
+                )
+              ],
             ),
-          ),
-        ],
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.only(top: 8),
+                itemCount: quiz['jawaban'].length,
+                itemBuilder: (context, index) {
+                  String answer = quiz['jawaban'][index];
+                  String jawabannya = jawabanBenar;
+                  var icon = jawabannya == answer
+                      ? Image.asset(
+                          "assets/Icon/btn-check-05.png",
+                          height: 16,
+                          width: 16,
+                        )
+                      : Image.asset(
+                          "assets/Icon/btn-05.png",
+                          height: 16,
+                          width: 16,
+                        );
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: GestureDetector(
+                      onTap: () => controller.klikjawab(answer, jawabanBenar),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            answer,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          GetX<QuizController>(
+                            builder: (controller) {
+                              if (controller.onclickj.value) {
+                                return icon;
+                              } else {
+                                return Container();
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -1126,95 +1149,98 @@ class WidgetQuiz10 extends StatelessWidget {
       ]
     };
     String numberQuiz = (controller.numberQuiz.toInt() + 1).toString();
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "$numberQuiz.",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 16),
-                  child: Text(
-                    quiz['pertanyaan'],
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.justify,
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "$numberQuiz.",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
-              )
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.only(top: 8),
-              itemCount: quiz['jawaban'].length,
-              itemBuilder: (context, index) {
-                String answer = quiz['jawaban'][index];
-                String jawabannya = jawabanBenar;
-                var icon = jawabannya == answer
-                    ? Image.asset(
-                        "assets/Icon/btn-check-05.png",
-                        height: 16,
-                        width: 16,
-                      )
-                    : Image.asset(
-                        "assets/Icon/btn-05.png",
-                        height: 16,
-                        width: 16,
-                      );
-                return Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: GestureDetector(
-                    onTap: () => controller.klikjawab(answer, jawabanBenar),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          answer,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        GetX<QuizController>(
-                          builder: (controller) {
-                            if (controller.onclickj.value) {
-                              return icon;
-                            } else {
-                              return Container();
-                            }
-                          },
-                        ),
-                      ],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 16),
+                    child: Text(
+                      quiz['pertanyaan'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
-                );
-              },
+                )
+              ],
             ),
-          ),
-        ],
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.only(top: 8),
+                itemCount: quiz['jawaban'].length,
+                itemBuilder: (context, index) {
+                  String answer = quiz['jawaban'][index];
+                  String jawabannya = jawabanBenar;
+                  var icon = jawabannya == answer
+                      ? Image.asset(
+                          "assets/Icon/btn-check-05.png",
+                          height: 16,
+                          width: 16,
+                        )
+                      : Image.asset(
+                          "assets/Icon/btn-05.png",
+                          height: 16,
+                          width: 16,
+                        );
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: GestureDetector(
+                      onTap: () => controller.klikjawab(answer, jawabanBenar),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            answer,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          GetX<QuizController>(
+                            builder: (controller) {
+                              if (controller.onclickj.value) {
+                                return icon;
+                              } else {
+                                return Container();
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

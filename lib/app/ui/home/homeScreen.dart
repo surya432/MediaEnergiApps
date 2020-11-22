@@ -28,12 +28,12 @@ class _HomeState extends State<Home> {
             title: new Text('Are you sure?'),
             content: new Text('Do you want to exit an App'),
             actions: <Widget>[
-              new FlatButton(
+              FlatButton(
                 onPressed: () => Navigator.of(context).pop(false),
                 child: new Text('No'),
               ),
-              new FlatButton(
-                onPressed: () => Navigator.of(context).pop(true),
+              FlatButton(
+                onPressed: () => Get.find<HomeController>().closedApp(),
                 child: new Text('Yes'),
               ),
             ],
