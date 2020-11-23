@@ -35,7 +35,7 @@ class _PeternakanScreenState extends State<PeternakanScreen>
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
         content: BoardTitleWidget(
-          widgetTitle: "assets/Icon/btn_pangan-04.png",
+          widgetTitle: "assets/slide/btn_pangan-04.png",
           widgetContent: Center(
             child: GetX<PeternakanController>(
               initState: (state) =>

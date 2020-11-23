@@ -36,7 +36,7 @@ class _PerkebunanScreenState extends State<PerkebunanScreen>
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
         content: BoardTitleWidget(
-          widgetTitle: "assets/Icon/btn_pangan-03.png",
+          widgetTitle: "assets/slide/btn_pangan-03.png",
           widgetContent: Center(
             child: GetX<PerkebunanController>(
               initState: (state) =>

@@ -28,7 +28,7 @@ class _MateriPertanianState extends State<MateriPertanian> {
       body: BGContainerWidget(
         kPaddingTop: context.mediaQueryPadding.top,
         content: BoardTitleWidget(
-          widgetTitle: "assets/Icon/btn_pangan-01.png",
+          widgetTitle: "assets/slide/btn_pangan-01.png",
           widgetContent: Center(
             child: GetX<PertanianController>(
               initState: (state) =>
