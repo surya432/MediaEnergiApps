@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.zoom,
       // transitionDuration: new Duration(milliseconds: 1000),
-      title: 'Media Interaktif Energi Terbarukan',
+      title: 'Pangan, Industri, Energi',
       theme: buildThemeData(context),
       // theme: ThemeData.dark(),
       initialRoute: '/spalsh',
