@@ -104,26 +104,30 @@ class _KopetensiDasarScreenState extends State<KopetensiDasarScreen> {
                       ),
                     )
                   ]),
-                  TableRow(children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                          "4.4 Membuat laporan persebaran ketahanan pangan nasional, bahan industri, serta energi baru dan terbarukan di Indonesia.",
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontFamily: "Gothic",
-                              color: Colors.white)),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                          "•	Melaporkan hasil analisis data dan informasi terkait ketahanan pangan, industri, serta energi baru dan terbarukan dalam bentuk tulisan dilengkapi tabel dan grafik",
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontFamily: "Gothic",
-                              color: Colors.white)),
-                    )
-                  ]),
+                  // TableRow(children: [
+                  //   // Padding(
+                  //   //   padding: const EdgeInsets.all(8.0),
+                  //   //   child: Text(
+                  //   //       "4.4 Membuat laporan persebaran ketahanan pangan nasional, bahan industri, serta energi baru dan terbarukan di Indonesia.",
+                  //   //       style: TextStyle(
+                  //   //           fontSize: 12,
+                  //   //           fontFamily: "Gothic",
+                  //   //           color: Colors.white)),
+                  //   // ),
+                  //   Padding(
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child: Container(),
+                  //   ),
+                  //   Padding(
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child: Text(
+                  //         "•	Melaporkan hasil analisis data dan informasi terkait ketahanan pangan, industri, serta energi baru dan terbarukan dalam bentuk tulisan dilengkapi tabel dan grafik",
+                  //         style: TextStyle(
+                  //             fontSize: 12,
+                  //             fontFamily: "Gothic",
+                  //             color: Colors.white)),
+                  //   )
+                  // ]),
                 ],
               ),
             ),

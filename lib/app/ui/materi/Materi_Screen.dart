@@ -23,7 +23,7 @@ var menuList = [
     "name": "Petunjuk Pengunaan"
   },
   {
-    "images": "assets/Icon/menu-button-pengelohan.png",
+    "images": "assets/Icon/menu-button-04.png",
     "route": MateriPengelolaanScreen(),
     "name": "Profil Pengembang"
   },

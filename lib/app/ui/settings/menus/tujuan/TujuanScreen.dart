@@ -28,7 +28,7 @@ class _TujuanScreenState extends State<TujuanScreen> {
         content: BoardTitleWidget(
           widgetTitle: "assets/Icon/button__tujuan.png",
           widgetContent: Container(
-            child: Center(
+            child: SingleChildScrollView(
               child: Column(
                 children: [
                   SizedBox(
