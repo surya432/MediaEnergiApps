@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mediainteaktifpangan/app/controller/HomeController.dart';
 import 'package:mediainteaktifpangan/app/controller/QuizController.dart';
 import 'package:get/get.dart';
 import 'package:mediainteaktifpangan/app/ui/widgets/BGdecorationWidget.dart';
@@ -43,7 +44,22 @@ class Quiz2Screen extends StatelessWidget {
                   widgetTitle: controller.data[controller.numberQuiz.toInt()]
                       ['images'],
                 ),
-                custombar: WidgetAppBarBackMusic(),
+                custombar: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(),
+                    GestureDetector(
+                      onTap: () => Get.find<HomeController>().playMusic(),
+                      child: Obx(
+                        () => Image.asset(
+                            Get.find<HomeController>().getImagesPlay.toString(),
+                            height: context.height * 0.12,
+                            width: context.height * 0.12),
+                      ),
+                    ),
+                  ],
+                ),
               );
             }
           },
